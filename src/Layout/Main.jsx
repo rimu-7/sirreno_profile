@@ -14,7 +14,7 @@ const Main = () => {
             <div className=''>
                 <Outlet />
             </div>
-            <Footer/>
+            {/* <Footer/> */}
             
         </div>
     );
