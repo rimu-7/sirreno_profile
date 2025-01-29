@@ -1,6 +1,21 @@
 import React from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { motion } from "motion/react";
+import image1 from "../../../assets/1.jpg";
+import image2 from "../../../assets/2.jpg";
+import image3 from "../../../assets/3.jpg";
+import image4 from "../../../assets/4.jpg";
+
+//motion
+const transition = {
+  duration: 1.5,
+  delay: 0.5,
+  ease: [0, 0.71, 0.2, 1.01],
+};
+
+
+//image_fix
+
 
 class Carousel extends React.Component {
   state = { activeIndex: 0, isHovered: false };
@@ -9,25 +24,29 @@ class Carousel extends React.Component {
     {
       title: "Lorem1",
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae sequi accusamus recusandae impedit! Rerum iure architecto nesciunt natus officiis in, consectetur ab. Voluptatum earum dignissimos maiores amet minus deserunt porro doloribus perferendis, dolores velit ducimus necessitatibus non quam quos asperiores repellat voluptatibus culpa, vitae aut modi, sunt nisi. Suscipit, laborum.",
-      imageUrl:
-        "https://plus.unsplash.com/premium_photo-1672883551967-ab11316526b4?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, non? Incidunt at rem eos nemo sint totam repellendus esse aliquid repudiandae magni voluptatibus animi, similique quis perferendis quas harum placeat.",
+      imageUrl: image1,
       link: "https://example.com/dress",
     },
     {
       title: "Lorem2",
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae sequi accusamus recusandae impedit! Rerum iure architecto nesciunt natus officiis in, consectetur ab. Voluptatum earum dignissimos maiores amet minus deserunt porro doloribus perferendis, dolores velit ducimus necessitatibus non quam quos asperiores repellat voluptatibus culpa, vitae aut modi, sunt nisi. Suscipit, laborum.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, non? Incidunt at rem eos nemo sint totam repellendus esse aliquid repudiandae magni voluptatibus animi, similique quis perferendis quas harum placeat.",
+      imageUrl: image2,
       link: "https://example.com/shoe",
     },
     {
       title: "Lorem 3",
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae sequi accusamus recusandae impedit! Rerum iure architecto nesciunt natus officiis in, consectetur ab. Voluptatum earum dignissimos maiores amet minus deserunt porro doloribus perferendis, dolores velit ducimus necessitatibus non quam quos asperiores repellat voluptatibus culpa, vitae aut modi, sunt nisi. Suscipit, laborum.",
-      imageUrl:
-        "https://images.pexels.com/photos/1029896/pexels-photo-1029896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, non? Incidunt at rem eos nemo sint totam repellendus esse aliquid repudiandae magni voluptatibus animi, similique quis perferendis quas harum placeat.",
+      imageUrl: image3,
+      link: "https://example.com/accessories",
+    },
+    {
+      title: "Lorem 4",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, non? Incidunt at rem eos nemo sint totam repellendus esse aliquid repudiandae magni voluptatibus animi, similique quis perferendis quas harum placeat.",
+      imageUrl: image4,
       link: "https://example.com/accessories",
     },
   ];
@@ -71,9 +90,12 @@ class Carousel extends React.Component {
     this.setState({ isHovered: false });
   };
 
+  
+
   render() {
     const { activeIndex } = this.state;
     const caseStudies = this.caseStudies;
+    
 
     return (
       <div
@@ -107,22 +129,36 @@ class Carousel extends React.Component {
           />
           
         </div> */}
-        {/* <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center p-4 bg-black bg-opacity-50">
-            <div className="text-center w-[900px]">
-              <h2 className="text-5xl font-bold text-white mb-8">{caseStudies[activeIndex].title}</h2>
-              <p className="text-white text-justify text-2xl mb-8">{caseStudies[activeIndex].description}</p>
-              <a
-                href={caseStudies[activeIndex].link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className=" px-6 py-3 text-lg font-bold text-white bg-green-400 rounded hover:bg-green-500"
-              >
-                Click Now
-              </a>
-            </div>
-          </div> */}
+        <div className="absolute w-full h-full flex flex-col justify-between p-10">
+          <motion.p
+            animate={{ x: -100 }}
+            transition={transition}
+            className=" font-bold text-5xl  self-end"
+          >
+            {caseStudies[activeIndex].title}
+          </motion.p>
+          <motion.p
+            animate={{ x: [-100, 0] }}
+            transition={transition}
+            className=" mb-20 text-justify text-2xl"
+          >
+            {caseStudies[activeIndex].description}
+          </motion.p>
+          <motion.a
+            initial={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            href={caseStudies[activeIndex].link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="self-start mb-30 px-6 py-3 text-lg backdrop:blur-md rounded-md"
+          >
+            Sir Reno Rocks
+          </motion.a>
+        </div>
+
         <div
-          className="absolute right-0 z-10 p-3 cursor-pointer rounded-full m-2 backdrop-blur-2xl bg-white/30 hover:bg-white/40 transition duration-300"
+          className="absolute right-0 z-10 p-3 cursor-pointer rounded-full m-2 backdrop-blur-2xl  transition duration-300"
           onClick={this.nextSlide}
         >
           <FiArrowRight className="" />
