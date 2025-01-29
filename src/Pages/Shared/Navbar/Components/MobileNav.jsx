@@ -1,22 +1,51 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion"; // Fix: Use framer-motion, not motion/react
+
+// Motion variants
+const dropdownVariants = {
+  hidden: { opacity: 0, y: -100 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 1, ease: "easeOut", staggerChildren: 0.1 } 
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 100, transition:{duration: 0.5} },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
+};
+
+const transition = {
+  duration: 1,
+  delay: 0.5,
+  ease: [0, 0.71, 0.2, 1.01],
+};
 
 const MobileNav = ({ isOpen }) => {
   return (
-    <div
-      className={`transition-all duration-300 ${
-        isOpen ? "block h-48" : "hidden h-0"
-      }`} // Expands height to push content down
+    <motion.ul 
+      className="flex flex-col gap-8 mt-10 ml-5 text-lg"
+      initial="hidden"
+      animate={isOpen ? "visible" : "hidden"} // ✅ Animate based on isOpen state
+      variants={dropdownVariants}
+      transition={transition}
     >
-      <ul className="bg-[#212121] duration-500 transform-3d flex flex-col gap-4 text-center p-4">
-        <li><Link to="/home">Home</Link></li>
-        <li><Link to="/about">About Us</Link></li>
-        <li><Link to="/services">Our Services</Link></li>
-        <li><Link to="/careers">Careers</Link></li>
-        <li><Link to="/blog">Blog</Link></li>
-        <li><Link to="/contact">Contact Us</Link></li>
-      </ul>
-    </div>
+      {["Home", "About Us", "Our Services", "Careers", "Blog", "Contact Us"].map((item, index) => (
+        <motion.li 
+          key={index}
+          className="hover:duration-300"
+          variants={itemVariants}
+          whileHover={{ scale: 1.1, color: "#ff7f50" }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Link to={`/${item.toLowerCase().replace(/\s/g, "")}`} className="animate-button">
+            {item}
+          </Link>
+        </motion.li>
+      ))}
+    </motion.ul>
   );
 };
 
