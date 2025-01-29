@@ -5,7 +5,7 @@ import { BsMusicNote } from "react-icons/bs";
 
 function SecondPart() {
   return (
-    <div className="bg-[#212121] min-h-screen flex flex-col lg:flex-row items-center p-4">
+    <div className="bg-[#212121] my-10 gap-4 flex flex-col lg:flex-row items-center p-4">
       {/* Left Side - Text Content */}
       <div className="w-full lg:w-1/2 lg:pl-6 mt-6 lg:mt-0">
         {/* <div className="text-white flex gap-2">
@@ -16,7 +16,7 @@ function SecondPart() {
             2000
           </p>
         </div> */}
-        <h1 className="text-4xl lg:text-6xl text-[#7b7a7a] font-bold flex justify-center items-center gap-2">
+        <h1 className="text-5xl my-5 lg:text-6xl text-[#7b7a7a] font-bold flex justify-center items-center gap-2">
           Lorem ipsum dolor sit amet.
         </h1>
         <p className="text-white flex text-center">
@@ -29,7 +29,7 @@ function SecondPart() {
       </div>
 
       {/* Right Side - Image Gallery */}
-      <div className="w-full lg:w-[50%] min-h-[140px] overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
+      <div className="w-full lg:w-[50%] min-h-[140px] overflow-x-scroll rounded-lg mt-5 lg:overflow-visible">
         <div className="grid grid-cols-2 gap-2">
           <div>
             <img
