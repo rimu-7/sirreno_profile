@@ -1,11 +1,4 @@
 import React from "react";
-import {
-  FaFacebook,
-  FaYoutube,
-  FaInstagram,
-  FaTwitter,
-  FaTiktok,
-} from "react-icons/fa";
 
 const AboutFooter = () => {
   const currentYear = new Date().getFullYear();
@@ -50,7 +43,7 @@ const AboutFooter = () => {
         </a>
       </div> */}
       <div className="text-center p-5">
-        &copy; {currentYear} Your Website Name. All rights reserved.
+        &copy; {currentYear} Your Website Name. All rights reserved
       </div>
     </footer>
   );

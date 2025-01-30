@@ -19,7 +19,7 @@ function About() {
   const [activeIndex] = useState(0); // Default index since you have one item
 
   return (
-    <div className="text-white px-3">
+    <div className="text-white px-3 min-h-[calc(100vh-200px)]">
       <div className=" py-10 text-white flex flex-col justify-center items-center text-center">
         <h1 className="text-6xl text-orange-600">
           <Typing
