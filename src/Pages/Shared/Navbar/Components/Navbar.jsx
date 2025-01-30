@@ -29,11 +29,11 @@ const Navbar = () => {
     <div
       className={`text-white sticky bg-opacity-90 backdrop-blur-lg top-0 p-5 mb-2 w-full transition-transform duration-300 ${
         isHidden ? "-translate-y-full" : "translate-y-0"
-      } ${isOpen ? "pb-10" : "pb-3"}`} // Expands the navbar height when open
+      } ${isOpen ? "" : ""}`} // Expands the navbar height when open
     >
-      <div className="flex items-center justify-between px-6 sm:px-1">
+      <div className="flex items-center justify-between px-6 h-10 sm:px-1">
         {/* Left - Logo */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 ">
           <Logo />
         </div>
 

@@ -1,26 +1,54 @@
-import React from "react";
-import { motion } from "motion/react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import FirstPart from "./About/FirstPart";
 import SecondPart from "./About/SecondPart";
 import AboutFooter from "./About/AboutFooter";
+import Typing from "react-typing-effect";
+
+const about = [
+  {
+    title: "NATIVE BREED MEDIA",
+    description: `NATIVE BREED MEDIA is a diversified entertainment media company based
+          in Liberia. It is also a brand agency with ventures integrating music,
+          events, sports, PR, branding, and digital marketing. We are dedicated to
+          promoting and improving the quality and value of the Liberian Culture.e`,
+  },
+];
 
 function About() {
+  const [activeIndex] = useState(0); // Default index since you have one item
+
   return (
-    // h-screen text-white flex justify-center items-center text-center
-    <div className=" text-white">
-      <div className="  text-white justify-center items-center text-center">
-        <h1 className="text-6xl text-orange-700">Record Labels</h1>
-        <p className="">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus
-          nobis labore rem debitis autem necessitatibus eos cupiditate odit
-          sapiente ut.
+    <div className="text-white px-3">
+      <div className=" py-10 text-white flex flex-col justify-center items-center text-center">
+        <h1 className="text-6xl text-orange-600">
+          <Typing
+            text={about[activeIndex].title}
+            speed={100}
+            eraseSpeed={100}
+            eraseDelay={2000}
+            typingDelay={100}
+            cursor=" "
+            cursorClassName="hidden"
+          />
+        </h1>
+        <p className=" text-justify w-[60%] px-3">
+          <Typing
+            text={about[activeIndex].description}
+            speed={30}
+            eraseSpeed={10000000000000}
+            eraseDelay={20000000000000}
+            typingDelay={100}
+            cursor=" "
+          />
         </p>
       </div>
 
-      {/* first part */}
+      {/* First part */}
       <FirstPart />
-      {/* sencod part */}
+      {/* Second part */}
       <SecondPart />
+      {/* Footer */}
       <AboutFooter />
     </div>
   );

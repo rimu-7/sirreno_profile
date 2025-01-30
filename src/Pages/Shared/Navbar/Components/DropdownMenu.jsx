@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { path } from "motion/react-client";
+// import { path } from "motion/react-client";
 
 const dropdownVariants = {
   hidden: { opacity: 0, y: -100 },
@@ -24,10 +24,12 @@ const transition = {
 };
 const menuItems = [
   { name: "Home", path: "/" },
-  {name:"Artist Services", path:"/services"},
+  {name:"Artist", path:"/artist"},
+  {name:"Services", path:"/services"},
   { name: "About", path: "/about" },
   { name: "Blog", path: "/blog" },
   { name: "Contact", path: "/contact" },
+  { name: "Events", path: "/events" },
 ];
 
 const DropdownMenu = () => {

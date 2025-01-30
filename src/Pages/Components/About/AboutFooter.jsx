@@ -12,7 +12,7 @@ const AboutFooter = () => {
 
   return (
     <footer className="mx-5">
-      <div className="flex justify-start  gap-2">
+      {/* <div className="flex justify-start  gap-2">
         <a
           href="https://www.facebook.com"
           target="_blank"
@@ -48,8 +48,8 @@ const AboutFooter = () => {
         >
           <FaTiktok className="hover:text-[#7b7a7a] hover:scale-110 hover:duration-500" />
         </a>
-      </div>
-      <div className="copyright">
+      </div> */}
+      <div className="text-center p-5">
         &copy; {currentYear} Your Website Name. All rights reserved.
       </div>
     </footer>
