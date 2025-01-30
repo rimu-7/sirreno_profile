@@ -9,6 +9,8 @@ import Blog from "../Pages/Components/Blog";
 import Services from "../Pages/Components/Services";
 import Contact from "../Pages/Components/Contact";
 import Careers from "../Pages/Components/Careers.jsx";
+import Artisst from "../Pages/Components/Artisst.jsx";
+import Events from "../Pages/Components/Events.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -37,8 +39,12 @@ export const router = createBrowserRouter([
         element: <Contact/>,
       },
       {
-        path: "/careers",
-        element: <Careers/>,
+        path: "/artist",
+        element: <Artisst/>,
+      },
+      {
+        path: "/events",
+        element: <Events/>,
       }
     ],
   },
