@@ -145,7 +145,7 @@ class Carousel extends React.Component {
             variants={iconVariants(2.1)}
             initial="initial"
             animate="animate"
-            className="hidden sm:block font-bold text-5xl  self-end"
+            className=" font-bold text-5xl  self-end"
           >
             {caseStudies[activeIndex].title}
           </motion.p>
@@ -172,7 +172,7 @@ class Carousel extends React.Component {
             href={caseStudies[activeIndex].link}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:block self-start  mb-30 px-6 py-3 text-lg backdrop:blur-md rounded-md"
+            className=" self-start  mb-30 px-6 py-3 text-lg backdrop:blur-md rounded-md"
           >
             <RiMusicAiLine className="text-9xl" />
           </motion.a>
