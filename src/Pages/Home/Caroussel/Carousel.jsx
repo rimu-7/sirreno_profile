@@ -1,10 +1,13 @@
 import React from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import Typing from "react-typing-effect";
 import { motion } from "motion/react";
-import image1 from "../../../assets/1.jpg";
-import image2 from "../../../assets/2.jpg";
-import image3 from "../../../assets/3.jpg";
-import image4 from "../../../assets/4.jpg";
+import { RiMusicAiLine } from "react-icons/ri";
+
+import image1 from "../../../assets/rec1.jpeg";
+import image2 from "../../../assets/rec2.jpeg";
+import image3 from "../../../assets/rec3.jpeg";
+import image4 from "../../../assets/rec4.jpeg";
 
 //motion
 const transition = {
@@ -12,10 +15,20 @@ const transition = {
   delay: 0.5,
   ease: [0, 0.71, 0.2, 1.01],
 };
-
+const iconVariants = (duration) => ({
+  initial: { y: 0 },
+  animate: {
+    y: [15, -10],
+    transition: {
+      duration: duration,
+      ease: "linear",
+      repeat: Infinity,
+      repeatType: "reverse",
+    },
+  },
+});
 
 //image_fix
-
 
 class Carousel extends React.Component {
   state = { activeIndex: 0, isHovered: false };
@@ -45,7 +58,7 @@ class Carousel extends React.Component {
     {
       title: "Lorem 4",
       description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, non? Incidunt at rem eos nemo sint totam repellendus esse aliquid repudiandae magni voluptatibus animi, similique quis perferendis quas harum placeat.",
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, dhsbk non?",
       imageUrl: image4,
       link: "https://example.com/accessories",
     },
@@ -90,12 +103,9 @@ class Carousel extends React.Component {
     this.setState({ isHovered: false });
   };
 
-  
-
   render() {
     const { activeIndex } = this.state;
     const caseStudies = this.caseStudies;
-    
 
     return (
       <div
@@ -104,7 +114,7 @@ class Carousel extends React.Component {
         onMouseLeave={this.handleMouseLeave}
       >
         <div
-          className="absolute left-0  z-10 p-3 cursor-pointer rounded-full m-2 backdrop-blur-2xl bg-white/30 hover:bg-white/40 transition duration-300"
+          className="absolute left-0  z-10 p-3 cursor-pointer rounded-full m-2 backdrop-blur-2xl transition duration-300"
           onClick={this.prevSlide}
         >
           <FiArrowLeft size="30" className="" />
@@ -129,31 +139,42 @@ class Carousel extends React.Component {
           />
           
         </div> */}
-        <div className="absolute w-full h-full flex flex-col justify-between p-10">
+        <div className="absolute w-full h-full text-black flex flex-col justify-between p-10">
           <motion.p
-            animate={{ x: -100 }}
             transition={transition}
-            className=" font-bold text-5xl  self-end"
+            variants={iconVariants(2.1)}
+            initial="initial"
+            animate="animate"
+            className="hidden sm:block font-bold text-5xl  self-end"
           >
             {caseStudies[activeIndex].title}
           </motion.p>
           <motion.p
-            animate={{ x: [-100, 0] }}
+            animate={{ x: [-1000, 0] }}
             transition={transition}
-            className=" mb-20 text-justify text-2xl"
+            className="hidden sm:block ml-30 text-start text-sm w-40 "
           >
-            {caseStudies[activeIndex].description}
+            <Typing
+              text={caseStudies[activeIndex].description}
+              speed={10} // Typing speed
+              eraseSpeed={1000000} // Erasing speed
+              eraseDelay={2000} // Delay before erasing
+              typingDelay={100} // Delay before starting
+              cursor="|" // Custom cursor
+              className="h-48"
+            />
           </motion.p>
           <motion.a
-            initial={{ y: 200, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            variants={iconVariants(2.1)}
+            initial="initial"
+            animate="animate"
             transition={{ duration: 0.8, ease: "easeInOut" }}
             href={caseStudies[activeIndex].link}
             target="_blank"
             rel="noopener noreferrer"
-            className="self-start mb-30 px-6 py-3 text-lg backdrop:blur-md rounded-md"
+            className="hidden sm:block self-start  mb-30 px-6 py-3 text-lg backdrop:blur-md rounded-md"
           >
-            Sir Reno Rocks
+            <RiMusicAiLine className="text-9xl" />
           </motion.a>
         </div>
 
