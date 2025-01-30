@@ -23,8 +23,8 @@ function SecondPart() {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, atque!
         </p>
         <div className="flex space-x-4 mt-2">
-          <BsMusicNote className="text-6xl lg:text-8xl p-2 rounded hover:text-[#7b7a7a] hover:duration-500 hover:transition-colors"/>
-          <RxMoon className="text-6xl lg:text-8xl p-2 rounded hover:text-[#7b7a7a] hover:duration-500 hover:transition-colors"/>
+          <BsMusicNote className="text-6xl lg:text-6xl p-2 rounded hover:text-[#7b7a7a] hover:duration-500 hover:transition-colors"/>
+          <RxMoon className="text-6xl lg:text-6xl p-2 rounded hover:text-[#7b7a7a] hover:duration-500 hover:transition-colors"/>
         </div>
       </div>
 
