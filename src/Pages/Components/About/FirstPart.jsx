@@ -17,8 +17,8 @@ const iconVariants = (duration) => ({
 
 const firstpart = [
   {
-    title: "Native Breed Media ",
-    description: `was founded In September 2021. Our team has the knowledge, experience,
+    title: "",
+    description: `Native Breed Media was founded In September 2021. Our team has the knowledge, experience,
           and creativity to make your brand come to life in Liberia and beyond.
           Native Breed Media is home to few talented young Liberians that are
           already doing well in and outside Liberia. The likes of J Slught,
@@ -125,21 +125,16 @@ function FirstPart() {
       <div className="w-full lg:w-1/2 lg:pl-6 mt-6 lg:mt-0">
         {" "}
         <div className="text-white flex gap-2">
-          <p className="text-orange-700 px-2 text-justify ">
-            We are a thinking company that creates, executes ideas and builds
-            strategies and structures for our clients.
+          <p className="text-3xl text-orange-600 font-bold uppercase text-justify ">
+            {/* We are a thinking company that creates, executes ideas and builds
+            strategies and structures for our clients. */}
+            We think, create, strategize, and build for our clients
           </p>
         </div>
         <h1 className="text-5xl my-5 lg:text-6xl text-[#7b7a7a] font-bold flex justify-center items-center gap-2">
-          <Typing
-            text={firstpart[activeIndex].title}
-            speed={100}
-            eraseSpeed={100}
-            eraseDelay={2000}
-            typingDelay={100}
-            cursor=" "
-            cursorClassName="hidden"
-          />
+          
+            {firstpart[activeIndex].title}
+            
         </h1>
         <p className="text-white flex text-justify">
           <Typing

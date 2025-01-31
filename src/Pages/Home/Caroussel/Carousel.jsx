@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Typing from "react-typing-effect";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { RiMusicAiLine } from "react-icons/ri";
 import { useSwipeable } from "react-swipeable";
 
@@ -88,39 +87,31 @@ const Carousel = () => {
 
   return (
     <div
-      {...handlers} // Attach swipe handlers here
-      className="flex items-center justify-center h-screen"
+      {...handlers}
+      className="flex items-center justify-center h-screen w-full overflow-hidden relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-
-      {/* left arrow button  */}
-      {/* <div
-        className="absolute left-0 z-10 p-3 cursor-pointer rounded-full m-2 backdrop-blur-2xl transition duration-300"
-        onClick={prevSlide}
-      >
-        <FiArrowLeft size="30" />
-      </div> */}
-      <div className="w-full h-full overflow-hidden relative">
+      
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
         <motion.img
           key={caseStudies[activeIndex].imageUrl}
           src={caseStudies[activeIndex].imageUrl}
           alt="Background"
-          className="w-screen h-full object-cover"
+          className="w-full h-full object-cover"
           initial={{ opacity: 0, scale: 1.2 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
         />
       </div>
-      <div className="absolute w-full h-full text-black flex flex-col justify-between p-10">
+      <div className="absolute w-full h-full text-[#212121] uppercase flex flex-col justify-between p-10">
         <motion.p
           transition={transition}
-          variants={iconVariants(2.1)}
+          variants={iconVariants(2)}
           initial="initial"
           animate="animate"
-          className="font-bold text-5xl self-end"
-        >
+          className="font-bold text-7xl self-end" style={{ fontFamily: 'Abril Fatface, serif' }}        >
           {caseStudies[activeIndex].title}
         </motion.p>
         <motion.p
@@ -134,31 +125,23 @@ const Carousel = () => {
             eraseSpeed={1000000}
             eraseDelay={2000}
             typingDelay={100}
-            cursor="|"
+            cursor=" "
             className="h-48"
           />
         </motion.p>
         <motion.a
-          variants={iconVariants(2.1)}
+          variants={iconVariants(3)}
           initial="initial"
           animate="animate"
           transition={{ duration: 0.8, ease: "easeInOut" }}
           href={caseStudies[activeIndex].link}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden sm:block self-start mb-30 px-6 py-3 text-lg backdrop:blur-md rounded-md"
+          className="text-[#212121] self-start mb-30 px-6 py-3 text-lg backdrop:blur-md rounded-md"
         >
           <RiMusicAiLine className="text-9xl" />
         </motion.a>
       </div>
-
-      {/* right arrow button  */}
-      {/* <div
-        className="absolute right-0 z-10 p-3 cursor-pointer rounded-full m-2 backdrop-blur-2xl transition duration-300"
-        onClick={nextSlide}
-      >
-        <FiArrowRight />
-      </div> */}
     </div>
   );
 };

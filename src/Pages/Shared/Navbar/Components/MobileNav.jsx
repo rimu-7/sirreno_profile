@@ -32,13 +32,13 @@ const menuItems = [
   { name: "Events", path: "/events" },
 ];
 
-const MobileNav = ({ isOpen }) => {
+const MobileNav = ({ isOpen, toggleMenu }) => {
   const location = useLocation();
   const [selectedTab, setSelectedTab] = useState(location.pathname);
 
   return (
     <motion.ul
-      className="flex flex-col gap-6 mt-10 ml-5 text-lg"
+      className="flex flex-col gap-6 mt-5 ml-5 text-lg"
       initial="hidden"
       animate={isOpen ? "visible" : "hidden"}
       variants={dropdownVariants}
@@ -51,7 +51,10 @@ const MobileNav = ({ isOpen }) => {
           variants={itemVariants}
           whileHover={{ scale: 1.1, color: "#ff7f50" }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => setSelectedTab(item.path)}
+          onClick={() => {
+            setSelectedTab(item.path);
+            toggleMenu(); // Close menu on click
+          }}
         >
           <Link
             to={item.path}
@@ -73,5 +76,6 @@ const MobileNav = ({ isOpen }) => {
     </motion.ul>
   );
 };
+
 
 export default MobileNav;

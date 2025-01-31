@@ -24,22 +24,23 @@ function About() {
         <h1 className="text-6xl text-orange-600">
           <Typing
             text={about[activeIndex].title}
-            speed={100}
-            eraseSpeed={100}
-            eraseDelay={2000}
+            speed={50}
+            eraseSpeed={50}
+            eraseDelay={5000}
             typingDelay={100}
             cursor=" "
             cursorClassName="hidden"
           />
         </h1>
-        <p className=" text-justify w-[60%] px-3">
+        <p className=" text-justify w-[80%] px-3">
           <Typing
             text={about[activeIndex].description}
-            speed={30}
+            speed={50}
             eraseSpeed={10000000000000}
             eraseDelay={20000000000000}
             typingDelay={100}
             cursor=" "
+            
           />
         </p>
       </div>
