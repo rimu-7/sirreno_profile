@@ -26,7 +26,7 @@ function About() {
             text={about[activeIndex].title}
             speed={50}
             eraseSpeed={50}
-            eraseDelay={5000}
+            eraseDelay={10000}
             typingDelay={100}
             cursor=" "
             cursorClassName="hidden"
@@ -35,7 +35,7 @@ function About() {
         <p className=" text-justify w-[80%] px-3">
           <Typing
             text={about[activeIndex].description}
-            speed={50}
+            speed={10}
             eraseSpeed={10000000000000}
             eraseDelay={20000000000000}
             typingDelay={100}

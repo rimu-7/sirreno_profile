@@ -47,7 +47,7 @@ function FirstPart() {
     }
   }, [count2]);
   return (
-    <div className="py-20 bg-[#212121] my-10 gap-4 flex flex-col lg:flex-row items-center p-4">
+    <div className=" bg-[#212121] my-10 gap-4 flex flex-col lg:flex-row items-center p-4">
       {" "}
       {/* Left Side - Image Gallery */}
       <div className="w-full lg:w-[50%] min-h-[140px] overflow-x-scroll rounded-lg lg:overflow-visible">
@@ -139,7 +139,7 @@ function FirstPart() {
         <p className="text-white flex text-justify">
           <Typing
             text={firstpart[activeIndex].description}
-            speed={30}
+            speed={10}
             eraseSpeed={10000000000000}
             eraseDelay={20000000000000}
             typingDelay={100}

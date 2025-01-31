@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-
 import image1 from "../../assets/rec1.jpeg";
 import image2 from "../../assets/rec3.jpeg";
+import { Link } from "react-router-dom";
 
 const caseStudies = [
   {
-    title: "Jasmine",
+    title: "JASSMINE",
     description: "Lorem ipsum dolor sit amet...",
     imageUrl: image1,
     link: "https://example.com/dress",
   },
   {
-    title: "Malcom",
+    title: "MALCOLM LL SMITHh",
     description: "Lorem ipsum dolor sit amet...",
     imageUrl: image2,
     link: "https://example.com/shoe",
@@ -22,42 +22,40 @@ const Artisst = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleTap = (index) => {
-    setActiveIndex(index); // Show text and blur image on tap
+    setActiveIndex(index);
   };
 
   const handleRelease = () => {
-    setActiveIndex(null); // Hide text and remove blur on release
+    setActiveIndex(null);
   };
 
   return (
-    <div className="h-screen text-white flex justify-center items-center text-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div className="w-full min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8 text-white">
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-6xl">
         {caseStudies.map((item, index) => (
-          <a key={index} href={item.link} target="_blank" rel="noopener noreferrer">
+          <Link to="/" key={index} href={item.link} target="_blank" rel="noopener noreferrer">
             <div
-              className="group relative overflow-hidden rounded-lg shadow-lg"
-              onTouchStart={() => handleTap(index)} // Trigger on tap
-              onTouchEnd={handleRelease} // Trigger on touch release
-              onMouseEnter={() => setActiveIndex(index)} // For desktop hover effect
-              onMouseLeave={handleRelease} // For desktop hover out
+              className="group relative overflow-hidden rounded-lg  cursor-pointer"
+              onTouchStart={() => handleTap(index)}
+              onTouchEnd={handleRelease}
+              onMouseEnter={() => setActiveIndex(index)}
+              onMouseLeave={handleRelease}
             >
-              {/* Image with blur effect on tap */}
               <img
                 src={item.imageUrl}
                 alt={item.title}
-                className={`w-96 h-96 object-cover transition duration-300 ${
+                className={`w-full h-120 sm:h-120 md:h-96 object-cover transition duration-300 ${
                   activeIndex === index ? "blur-md" : "group-hover:blur-md"
                 }`}
               />
-              {/* Overlay for text */}
               <div
-                className={`absolute inset-0 bg-opacity-0 group-hover:bg-opacity-50 group-hover:scale-110 backdrop-blur-none group-hover:backdrop-blur-md transition duration-300 flex items-center justify-center ${
-                  activeIndex === index ? "bg-opacity-50 scale-110 backdrop-blur-md" : ""
+                className={`absolute inset-0 flex items-center justify-center transition duration-300 bg-opacity-0 group-hover:bg-opacity-50 ${
+                  activeIndex === index ? "bg-opacity-50" : ""
                 }`}
               >
                 <p
-                  className={`font-bold text-7xl sm:text-left md:opacity-0 md:group-hover:opacity-100 transition duration-300 ${
-                    activeIndex === index ? "opacity-100" : "opacity-0"
+                  className={`font-bold text-4xl md:text-6xl lg:text-7xl text-center uppercase transition duration-300 opacity-0 group-hover:opacity-100 ${
+                    activeIndex === index ? "opacity-100" : ""
                   }`}
                   style={{ fontFamily: "Abril Fatface, serif" }}
                 >
@@ -65,7 +63,7 @@ const Artisst = () => {
                 </p>
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>
