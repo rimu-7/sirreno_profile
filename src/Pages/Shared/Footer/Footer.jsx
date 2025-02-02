@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 
 function Footer() {
+  const [year, setYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    setYear(new Date().getFullYear()); 
+  }, []);
+
   return (
-    <div className='text-white bg-opacity-90 backdrop-blur-lg top-0 p-5 w-full transition-transform duration-300'>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum culpa eum nesciunt at. Consectetur aliquam vero mollitia unde qui tenetur.
+    <div className="bg-neutral-900 flex justify-center p-2 text-white border-t-2 border-neutral-600 text-center">
+      <small>All Rights Reserved &copy; {year} Copyrights, Native Breed Media.</small>
     </div>
-  )
+  );
 }
 
 export default Footer;

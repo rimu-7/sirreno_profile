@@ -32,7 +32,7 @@ function About() {
             cursorClassName="hidden"
           />
         </h1>
-        <p className=" text-justify w-[80%] px-3">
+        <p className=" text-justify  px-3">
           <Typing
             text={about[activeIndex].description}
             speed={10}
