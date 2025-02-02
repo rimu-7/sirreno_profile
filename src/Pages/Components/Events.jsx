@@ -9,11 +9,11 @@ const Artisst = () => {
   const artist = [
     {
       name: "Jassmine",
-      image: image1,
+      image: 'https://dummyimage.com/300/09f.png',
     },
     {
       name: "MALCOLM LL SMITH",
-      image: image2,
+      image: 'https://dummyimage.com/300/09f.png',
     },
   ];
   const [activeIndex, setActiveIndex] = useState(null);
