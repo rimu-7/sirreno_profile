@@ -66,15 +66,15 @@ function FirstPart() {
       {/* Left Side - Image Gallery */}
       <div className="w-full lg:w-[50%] min-h-[140px] overflow-x-scroll rounded-lg lg:overflow-visible">
         {" "}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <motion.div
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div
             variants={iconVariants(2.6)}
             initial="initial"
             animate="animate"
             className="flex justify-center"
           >
             <img
-              className="object-cover object-center h-40 w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              className="object-cover object-center min:h-[90%] w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
               src={img1}
               alt="image 1"
             />
@@ -86,7 +86,7 @@ function FirstPart() {
             className="flex justify-center"
           >
             <img
-              className="object-cover object-center h-40 w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              className="object-cover object-center min:h-[90%] w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
               src={img2}
               alt="image 2"
             />
@@ -98,7 +98,7 @@ function FirstPart() {
             className="flex justify-center"
           >
             <img
-              className="object-cover object-center h-40 w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              className="object-cover object-center min:h-[90%] w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
               src={img3}
               alt="image 3"
             />
@@ -110,7 +110,7 @@ function FirstPart() {
             className="flex justify-center"
           >
             <img
-              className="object-cover object-center h-40 w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              className="object-cover object-center min:h-[90%] w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
               src={img4}
               alt="image 4"
             />
@@ -122,7 +122,7 @@ function FirstPart() {
             className="flex justify-center"
           >
             <img
-              className="object-cover object-center h-40 w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              className="object-cover object-center min:h-[90%] w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
               src={img5}
               alt="image 5"
             />
@@ -134,7 +134,7 @@ function FirstPart() {
             className="flex justify-center"
           >
             <img
-              className="object-cover object-center h-40 w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              className="object-cover object-center min:h-[90%] w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
               src={img7}
               alt="image 6"
             />
