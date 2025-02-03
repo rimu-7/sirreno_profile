@@ -53,7 +53,7 @@ const Artisst = () => {
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8 text-white">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-6xl">
-        {images.map((item, index) => (
+        {artist.map((item, index) => (
           <Link
             to="/artist"
             key={index}
@@ -88,7 +88,7 @@ const Artisst = () => {
                   }`}
                   style={{ fontFamily: "Abril Fatface, serif" }}
                 >
-                  {item.artist_name}
+                  {item.name}
                 </p>
               </div>
             </div>

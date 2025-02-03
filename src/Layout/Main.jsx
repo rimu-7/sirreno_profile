@@ -4,19 +4,17 @@ import Navbar from '../Pages/Shared/Navbar/Components/Navbar';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 import Footer from '../Pages/Shared/Footer/Footer';
 
-
 const Main = () => {
     return (
-        <div className='bg-[#212121] w-full'>
-            <div className=""></div>
-            {/* <Navbar/> */}
-            <Navbar/>
-
-            <div className=''>
+        <div className="bg-[#212121] w-full min-h-screen flex flex-col">
+            <Navbar />
+            
+            {/* Centered Content with max-width for 4K screens */}
+            <div className="w-full max-w-[1800px] mx-auto px-6">
                 <Outlet />
             </div>
-            {/* <Footer/> */}
-            
+
+            <Footer />
         </div>
     );
 };

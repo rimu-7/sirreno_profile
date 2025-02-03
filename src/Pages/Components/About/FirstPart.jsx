@@ -61,7 +61,7 @@ function FirstPart() {
     }
   }, [count2]);
   return (
-    <div className=" bg-[#212121] my-10 gap-4 flex flex-col lg:flex-row items-center p-4">
+    <div className="  my-10 gap-4 flex flex-col lg:flex-row items-center p-4">
       {" "}
       {/* Left Side - Image Gallery */}
       <div className="w-full lg:w-[50%] min-h-[140px] overflow-x-scroll rounded-lg lg:overflow-visible">
