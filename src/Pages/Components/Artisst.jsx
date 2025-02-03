@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "../Shared/Loading/Loading";
-import image1 from '../../assets/rec1.jpeg'
-import image2 from '../../assets/rec3.jpeg'
+import image1 from "../../assets/rec1.jpeg";
+import image2 from "../../assets/rec3.jpeg";
 
 const Artisst = () => {
   const artist = [
     {
-      name:"Jassmine",
-      image:image1,
+      name: "Jassmine",
+      image: image1,
     },
     {
-      name:"MALCOLM LL SMITH",
-      image:image2,
-    }
-  ]
+      name: "MALCOLM LL SMITH",
+      image: image2,
+    },
+  ];
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleTap = (index) => {
@@ -31,7 +31,7 @@ const Artisst = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/get-api")
+      .get("http://localhost:5000/data")
       .then((response) => {
         setImages(response.data);
         setLoading(false);
@@ -53,7 +53,7 @@ const Artisst = () => {
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8 text-white">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-6xl">
-        {artist.map((item, index) => (
+        {images.map((item, index) => (
           <Link
             to="/artist"
             key={index}
@@ -68,13 +68,15 @@ const Artisst = () => {
               onMouseEnter={() => setActiveIndex(index)}
               onMouseLeave={handleRelease}
             >
-              <img
-                src={item.image}
-                alt={item.artist_name}
-                className={`w-full h-120 sm:h-120 md:h-96 object-cover transition duration-300 ${
-                  activeIndex === index ? "blur-md" : "group-hover:blur-md"
-                }`}
-              />
+              <div className=" h-120 sm:h-120 md:h-120">
+                <img
+                  src={item.image}
+                  alt={item.artist_name}
+                  className={`w-full h-full object-cover transition duration-300 ${
+                    activeIndex === index ? "blur-md" : "group-hover:blur-md"
+                  }`}
+                />
+              </div>
               <div
                 className={`absolute inset-0 flex items-center justify-center transition duration-300 bg-opacity-0 group-hover:bg-opacity-50 ${
                   activeIndex === index ? "bg-opacity-50" : ""
@@ -86,7 +88,7 @@ const Artisst = () => {
                   }`}
                   style={{ fontFamily: "Abril Fatface, serif" }}
                 >
-                  {item.name}
+                  {item.artist_name}
                 </p>
               </div>
             </div>

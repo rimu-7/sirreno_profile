@@ -1,85 +1,42 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import Loading from "../Shared/Loading/Loading";
-import image1 from "../../assets/rec1.jpeg";
-import image2 from "../../assets/rec3.jpeg";
+import { useEffect, useState } from "react";
 
-const Artisst = () => {
-  const artist = [
-    {
-      name: "Jassmine",
-      image: 'https://dummyimage.com/300/09f.png',
-    },
-    {
-      name: "MALCOLM LL SMITH",
-      image: 'https://dummyimage.com/300/09f.png',
-    },
-  ];
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const handleTap = (index) => {
-    setActiveIndex(index);
-  };
-
-  const handleRelease = () => {
-    setActiveIndex(null);
-  };
-
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+const Event = () => {
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/get-api")
-      .then((response) => {
-        setImages(response.data);
-        setLoading(false);
+    fetch("http://localhost:5000/data")
+      .then((response) => response.json())
+      .then((data) => {
+        // Extract only unique and non-empty event_images
+        const uniqueImages = Array.from(
+          new Set(
+            data
+              .map((item) => item.event_images)
+              .filter((img) => img && img.trim() !== "")
+          )
+        );
+
+        setEvents(uniqueImages);
       })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      });
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  if (loading) {
-    return (
-      <div className="h-screen text-white bg-[#212121]">
-        <Loading />
-      </div>
-    );
-  }
-
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8 text-white">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-6xl">
-        {artist.map((item, index) => (
-          <Link
-            to="/artist"
-            key={index}
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div
-              className="group relative overflow-hidden rounded-lg  cursor-pointer"
-              onTouchStart={() => handleTap(index)}
-              onTouchEnd={handleRelease}
-              onMouseEnter={() => setActiveIndex(index)}
-              onMouseLeave={handleRelease}
-            >
-              <img
-                src={item.image}
-                alt={item.artist_name}
-                className={`w-full h-120 sm:h-120 md:h-96 object-cover transition duration-300"
-                }`}
-              />
+    <div className="p-4">
+      <h2 className="text-xl font-bold mb-4">Event Images</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {events.length > 0 ? (
+          events.map((image, index) => (
+            <div key={index} className="rounded-lg overflow-hidden shadow-lg">
+              <img src={image} alt="Event" className="w-full h-48 object-cover" />
             </div>
-          </Link>
-        ))}
+          ))
+        ) : (
+          <p>No event images available</p>
+        )}
       </div>
     </div>
   );
 };
 
-export default Artisst;
+export default Event;

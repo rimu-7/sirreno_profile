@@ -3,6 +3,8 @@ import Typing from "react-typing-effect";
 import { motion } from "framer-motion";
 import { RiMusicAiLine } from "react-icons/ri";
 import { useSwipeable } from "react-swipeable";
+import Loading from "../../Shared/Loading/Loading";
+import axios from "axios";
 
 import image1 from "../../../assets/rec1.jpeg";
 import image2 from "../../../assets/rec3.jpeg";
@@ -33,25 +35,25 @@ const Carousel = () => {
 
   const caseStudies = [
     {
-      title: "jasmine",
+      title: "jassmine",
       description: "Lorem ipsum dolor sit amet...",
       imageUrl: image1,
       link: "https://example.com/dress",
     },
     {
-      title: "Malcom",
+      title: "Malcolm LL Smith",
       description: "Lorem ipsum dolor sit amet...",
       imageUrl: image2,
       link: "https://example.com/shoe",
     },
     {
-      title: "Jasmine",
+      title: "Jassmine",
       description: "Lorem ipsum dolor sit amet...",
       imageUrl: image3,
       link: "https://example.com/accessories",
     },
     {
-      title: "Malcom",
+      title: "Malcolm LL Smith",
       description: "Lorem ipsum dolor sit amet...",
       imageUrl: image4,
       link: "https://example.com/accessories",
@@ -72,8 +74,8 @@ const Carousel = () => {
   };
 
   const prevSlide = () => {
-    setActiveIndex(
-      (prevIndex) => (prevIndex === 0 ? caseStudies.length - 1 : prevIndex - 1)
+    setActiveIndex((prevIndex) =>
+      prevIndex === 0 ? caseStudies.length - 1 : prevIndex - 1
     );
   };
 
@@ -85,6 +87,30 @@ const Carousel = () => {
     trackMouse: true,
   });
 
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/data")
+      .then((response) => {
+        setImages(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="h-screen text-white bg-[#212121]">
+        <Loading />
+      </div>
+    );
+  }
+
   return (
     <div
       {...handlers}
@@ -92,17 +118,16 @@ const Carousel = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <motion.img
           key={caseStudies[activeIndex].imageUrl}
           src={caseStudies[activeIndex].imageUrl}
           alt="Background"
-          className="w-full h-full object-cover"
-          initial={{ opacity: 0, scale: 1.2 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.9 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="w-full h-full object-cover absolute"
+          initial={{ opacity: 0, scale: 1.1, x: 100, filter: "blur(10px)" }}
+          animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)" }}
+          exit={{ opacity: 0, scale: 1.1, x: -100, filter: "blur(10px)" }}
+          transition={{ duration: 1.8, ease: "easeInOut" }}
         />
       </div>
       <div className="absolute w-full h-full text-[#212121] uppercase flex flex-col justify-between p-10">
@@ -111,10 +136,24 @@ const Carousel = () => {
           variants={iconVariants(2)}
           initial="initial"
           animate="animate"
-          className="font-bold text-7xl self-end" style={{ fontFamily: 'Abril Fatface, serif' }}        >
+          className="font-bold text-7xl self-end"
+          style={{ fontFamily: "Abril Fatface, serif" }}
+        >
           {caseStudies[activeIndex].title}
         </motion.p>
-        <motion.p
+        {/* <motion.p
+          transition={transition}
+          variants={iconVariants(2)}
+          initial="initial"
+          animate="animate"
+          className="font-bold text-7xl self-end"
+          style={{ fontFamily: "Abril Fatface, serif" }}
+        >
+          {images.map((item, index) => (
+            <p key={index}>{item.artist_name}</p>
+          ))}
+        </motion.p> */}
+        {/* <motion.p
           animate={{ x: [-1000, 0] }}
           transition={transition}
           className="ml-30 text-start text-sm w-40"
@@ -128,7 +167,7 @@ const Carousel = () => {
             cursor=" "
             className="h-48"
           />
-        </motion.p>
+        </motion.p> */}
         <motion.a
           variants={iconVariants(3)}
           initial="initial"
