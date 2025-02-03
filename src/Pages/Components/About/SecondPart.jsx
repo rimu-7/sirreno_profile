@@ -1,13 +1,7 @@
 import React from "react";
 
 import { BsMusicNote } from "react-icons/bs";
-import {
-  FaFacebook,
-  FaYoutube,
-  FaInstagram,
-  FaTwitter,
-  FaTiktok,
-} from "react-icons/fa";
+import img from "../../../assets/1111.jpeg";
 import { Link } from "react-router-dom";
 
 function SecondPart() {
@@ -31,7 +25,7 @@ function SecondPart() {
           ecosystem and changing the perception of Liberian brands and creatives
           through excellent delivery.
         </p>
-        <div className="flex justify-center gap-x-6 mt-4">
+        {/* <div className="flex justify-center gap-x-6 mt-4">
           <BsMusicNote className="text-5xl lg:text-6xl p-3 rounded-full bg-gray-800 text-white transition-all duration-500 hover:text-orange-600 hover:scale-110 cursor-pointer" />
 
           <Link to="https://www.facebook.com/share/14pR5KvBmuU/?mibextid=wwXIfr">
@@ -53,51 +47,15 @@ function SecondPart() {
           <Link to="https://www.youtube.com/@nativebreedmedia">
             <FaYoutube className="text-5xl lg:text-6xl p-3 rounded-full bg-red-600 text-white transition-all duration-500 hover:bg-red-700 hover:scale-110" />
           </Link>
-        </div>
+        </div> */}
       </div>
 
       {/* Right Side - Image Gallery */}
-      <div className="grid grid-cols-3 gap-2">
+      <div className="">
         <div>
           <img
-            className="object-cover object-center h-30 max-w-full rounded-lg md:h-30 hover:scale-105 hover:duration-500"
-            src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2560&amp;q=80"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            className="object-cover object-center h-30 max-w-full rounded-lg md:h-30 hover:scale-105 hover:duration-500"
-            src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2940&amp;q=80"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            className="object-cover object-center h-30 max-w-full rounded-lg md:h-30 hover:scale-105 hover:duration-500"
-            src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            className="object-cover object-center h-30 max-w-full rounded-lg md:h-30 hover:scale-105 hover:duration-500"
-            src="https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            className="object-cover object-center h-30 max-w-full rounded-lg md:h-30 hover:scale-105 hover:duration-500"
-            src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2560&amp;q=80"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            className="object-cover object-center h-30 max-w-full rounded-lg md:h-30 hover:scale-105 hover:duration-500"
-            src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2940&amp;q=80"
-            alt=""
+            className="object-cover object-center  max-w-full rounded-lg hover:scale-105 hover:duration-500"
+            src={img}
           />
         </div>
       </div>

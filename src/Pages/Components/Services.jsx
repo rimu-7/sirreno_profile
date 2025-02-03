@@ -3,7 +3,7 @@ import Banner from "./Services/Banner";
 
 function Services() {
   return (
-    <div className=" text-white flex justify-center items-center text-center">
+    <div className=" text-white h-screen flex justify-center items-center text-center">
       <Banner />
     </div>
   );

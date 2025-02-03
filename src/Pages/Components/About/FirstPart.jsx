@@ -2,6 +2,15 @@ import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import Typing from "react-typing-effect";
 
+import img1 from "../../../assets/img/mal2.jpeg";
+import img2 from "../../../assets/img/mal3.jpeg";
+import img3 from "../../../assets/IMG_6551.jpeg";
+import img4 from "../../../assets/img/rec1.jpeg";
+import img5 from "../../../assets/IMG_6548.jpeg";
+import img6 from "../../../assets/img/rec4.jpeg";
+import img7 from "../../../assets/img/mal2.jpeg";
+import img8 from "../../../assets/img/mal.jpeg";
+
 const iconVariants = (duration) => ({
   initial: { y: 0 },
   animate: {
@@ -14,6 +23,11 @@ const iconVariants = (duration) => ({
     },
   },
 });
+const letterAnimation = {
+  initial: { opacity: 0, y: 10 },
+  animate: { opacity: 1, y: 0 },
+  transition: (index) => ({ delay: index * 0.05 }),
+};
 
 const firstpart = [
   {
@@ -52,71 +66,77 @@ function FirstPart() {
       {/* Left Side - Image Gallery */}
       <div className="w-full lg:w-[50%] min-h-[140px] overflow-x-scroll rounded-lg lg:overflow-visible">
         {" "}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <motion.div
             variants={iconVariants(2.6)}
             initial="initial"
             animate="animate"
+            className="flex justify-center"
           >
             <img
-              className="object-cover object-center h-30 max-w-full rounded-lg md:h-30 hover:scale-105 hover:duration-500"
-              src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2560&amp;q=80"
-              alt=""
+              className="object-cover object-center h-40 w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              src={img1}
+              alt="image 1"
             />
           </motion.div>
           <motion.div
             variants={iconVariants(3)}
             initial="initial"
             animate="animate"
+            className="flex justify-center"
           >
             <img
-              className="object-cover object-center h-30 max-w-full rounded-lg md:h-30 hover:scale-105 hover:duration-500"
-              src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2940&amp;q=80"
-              alt=""
+              className="object-cover object-center h-40 w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              src={img2}
+              alt="image 2"
             />
           </motion.div>
           <motion.div
             variants={iconVariants(2.5)}
             initial="initial"
             animate="animate"
+            className="flex justify-center"
           >
             <img
-              className="object-cover object-center h-30 max-w-full rounded-lg md:h-30 hover:scale-105 hover:duration-500"
-              src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
-              alt=""
+              className="object-cover object-center h-40 w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              src={img3}
+              alt="image 3"
             />
           </motion.div>
           <motion.div
             variants={iconVariants(3)}
             initial="initial"
             animate="animate"
+            className="flex justify-center"
           >
             <img
-              className="object-cover object-center h-30 max-w-full rounded-lg md:h-30 hover:scale-105 hover:duration-500"
-              src="https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
-              alt=""
+              className="object-cover object-center h-40 w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              src={img4}
+              alt="image 4"
             />
           </motion.div>
           <motion.div
             variants={iconVariants(2.8)}
             initial="initial"
             animate="animate"
+            className="flex justify-center"
           >
             <img
-              className="object-cover object-center h-30 max-w-full rounded-lg md:h-30 hover:scale-105 hover:duration-500"
-              src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2560&amp;q=80"
-              alt=""
+              className="object-cover object-center h-40 w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              src={img5}
+              alt="image 5"
             />
           </motion.div>
           <motion.div
             variants={iconVariants(2.4)}
             initial="initial"
             animate="animate"
+            className="flex justify-center"
           >
             <img
-              className="object-cover object-center h-30 max-w-full rounded-lg md:h-30 hover:scale-105 hover:duration-500"
-              src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2940&amp;q=80"
-              alt=""
+              className="object-cover object-center h-40 w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              src={img7}
+              alt="image 6"
             />
           </motion.div>
         </div>
@@ -126,16 +146,18 @@ function FirstPart() {
         {" "}
         <div className="text-white flex gap-2">
           <p className="text-3xl text-orange-600 font-bold uppercase text-justify ">
-            {/* We are a thinking company that creates, executes ideas and builds
-            strategies and structures for our clients. */}
             We think, create, strategize, and build for our clients
           </p>
         </div>
-        <h1 className="text-5xl my-5 lg:text-6xl text-[#7b7a7a] font-bold flex justify-center items-center gap-2">
-          
-            {firstpart[activeIndex].title}
-            
-        </h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, staggerChildren: 0.1 }}
+          className="text-5xl my-5 lg:text-6xl text-[#7b7a7a] font-bold flex
+          justify-center items-center gap-2"
+        >
+          {firstpart[activeIndex].title}
+        </motion.h1>
         <p className="text-white flex text-justify">
           <Typing
             text={firstpart[activeIndex].description}

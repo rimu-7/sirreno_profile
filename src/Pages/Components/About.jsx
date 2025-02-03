@@ -14,6 +14,18 @@ const about = [
           promoting and improving the quality and value of the Liberian Culture.e`,
   },
 ];
+const iconVariants = (duration) => ({
+  initial: { y: 0 },
+  animate: {
+    y: [10, -10],
+    transition: {
+      duration: duration,
+      ease: "linear",
+      repeat: Infinity,
+      repeatType: "reverse",
+    },
+  },
+});
 
 function About() {
   const [activeIndex] = useState(0); // Default index since you have one item
@@ -21,17 +33,14 @@ function About() {
   return (
     <div className="text-white px-3 min-h-[calc(100vh-200px)]">
       <div className=" py-10 text-white flex flex-col justify-center items-center text-center">
-        <h1 className="text-6xl text-orange-600">
-          <Typing
-            text={about[activeIndex].title}
-            speed={50}
-            eraseSpeed={50}
-            eraseDelay={10000}
-            typingDelay={100}
-            cursor=" "
-            cursorClassName="hidden"
-          />
-        </h1>
+        <motion.h1
+          variants={iconVariants(2.6)}
+          initial="initial"
+          animate="animate"
+          className="text-6xl text-orange-600"
+        >
+          {about[activeIndex].title}
+        </motion.h1>
         <p className=" text-justify  px-3">
           <Typing
             text={about[activeIndex].description}
@@ -40,7 +49,6 @@ function About() {
             eraseDelay={20000000000000}
             typingDelay={100}
             cursor=" "
-            
           />
         </p>
       </div>
