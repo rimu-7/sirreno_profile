@@ -4,6 +4,7 @@ import axios from "axios";
 import Loading from "../Shared/Loading/Loading";
 import image1 from "../../assets/rec1.jpeg";
 import image2 from "../../assets/rec3.jpeg";
+import Footer from "../Shared/Footer/Footer";
 
 const Artisst = () => {
   const artist = [
@@ -31,7 +32,7 @@ const Artisst = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/data")
+      .get("http://localhost:5002/data")
       .then((response) => {
         setImages(response.data);
         setLoading(false);
@@ -51,7 +52,8 @@ const Artisst = () => {
   }
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8 text-white">
+    <div className="">
+      <div className="w-full min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8 text-white">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-6xl">
         {artist.map((item, index) => (
           <Link
@@ -95,6 +97,8 @@ const Artisst = () => {
           </Link>
         ))}
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 };

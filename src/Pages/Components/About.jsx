@@ -4,6 +4,7 @@ import FirstPart from "./About/FirstPart";
 import SecondPart from "./About/SecondPart";
 import AboutFooter from "./About/AboutFooter";
 import Typing from "react-typing-effect";
+import Footer from "../Shared/Footer/Footer";
 
 const about = [
   {
@@ -41,16 +42,7 @@ function About() {
         >
           {about[activeIndex].title}
         </motion.h1>
-        <p className=" text-justify  px-3">
-          <Typing
-            text={about[activeIndex].description}
-            speed={10}
-            eraseSpeed={10000000000000}
-            eraseDelay={20000000000000}
-            typingDelay={100}
-            cursor=" "
-          />
-        </p>
+        <p className=" text-justify  px-3">{about[activeIndex].description}</p>
       </div>
 
       {/* First part */}
@@ -58,7 +50,8 @@ function About() {
       {/* Second part */}
       <SecondPart />
       {/* Footer */}
-      <AboutFooter />
+      {/* <AboutFooter /> */}
+      <Footer />
     </div>
   );
 }

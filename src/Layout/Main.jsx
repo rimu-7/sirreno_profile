@@ -10,11 +10,11 @@ const Main = () => {
             <Navbar />
             
             {/* Centered Content with max-width for 4K screens */}
-            <div className="w-full max-w-[1800px] mx-auto px-6">
+            <div className="w-full max-w-[1800px] mx-auto ">
                 <Outlet />
             </div>
 
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };
