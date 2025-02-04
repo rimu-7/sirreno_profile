@@ -11,6 +11,9 @@ import Contact from "../Pages/Components/Contact";
 import Careers from "../Pages/Components/Careers.jsx";
 import Artisst from "../Pages/Components/Artisst.jsx";
 import Events from "../Pages/Components/Events.jsx";
+import App from "../Pages/Components/artist_2.jsx";
+import ArtistDetails from "../Pages/Components/ArtistDetails.jsx";
+import Artist_2 from "../Pages/Components/artist_2.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -40,11 +43,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/artist",
-        element: <Artisst/>,
+        element: <Artist_2/>,
       },
       {
         path: "/events",
         element: <Events/>,
+      },
+      {
+        path: "/artist/:id",
+        element: <ArtistDetails/>,
       }
     ],
   },

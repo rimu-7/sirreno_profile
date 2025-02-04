@@ -1,22 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import Loading from "../Shared/Loading/Loading";
-import image1 from "../../assets/rec1.jpeg";
-import image2 from "../../assets/rec3.jpeg";
+import { artists } from "../../assets/artistData";
 import Footer from "../Shared/Footer/Footer";
 
-const Artisst = () => {
-  const artist = [
-    {
-      name: "Jassmine",
-      image: image1,
-    },
-    {
-      name: "MALCOLM LL SMITH",
-      image: image2,
-    },
-  ];
+const Artist_2 = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleTap = (index) => {
@@ -27,54 +14,24 @@ const Artisst = () => {
     setActiveIndex(null);
   };
 
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:5002/data")
-      .then((response) => {
-        setImages(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="h-screen text-white bg-[#212121]">
-        <Loading />
-      </div>
-    );
-  }
-
   return (
     <div className="">
       <div className="w-full min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8 text-white">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-6xl">
-          {artist.map((item, index) => (
-            <Link
-              to="/artist"
-              key={index}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          {artists.map((artist, index) => (
+            <Link to={`/artist/${artist.id}`} key={artist.id}>
               <div
-                className="group relative overflow-hidden rounded-lg  cursor-pointer"
+                className="group relative overflow-hidden rounded-lg cursor-pointer"
                 onTouchStart={() => handleTap(index)}
                 onTouchEnd={handleRelease}
                 onMouseEnter={() => setActiveIndex(index)}
                 onMouseLeave={handleRelease}
               >
-                <div className=" h-120 sm:h-120 md:h-120">
+                <div className="h-96 sm:h-96 md:h-96">
                   <img
-                    src={item.image}
-                    alt={item.artist_name}
-                    className={`w-full h-full object-cover transition duration-300 ${
+                    src={artist.images[3]}
+                    alt={artist.name}
+                    className={`w-full h-full object-cover transition duration-300 rounded-lg shadow-lg ${
                       activeIndex === index ? "blur-md" : "group-hover:blur-md"
                     }`}
                   />
@@ -90,7 +47,7 @@ const Artisst = () => {
                     }`}
                     style={{ fontFamily: "Abril Fatface, serif" }}
                   >
-                    {item.name}
+                    {artist.name}
                   </p>
                 </div>
               </div>
@@ -103,4 +60,4 @@ const Artisst = () => {
   );
 };
 
-export default Artisst;
+export default Artist_2;
