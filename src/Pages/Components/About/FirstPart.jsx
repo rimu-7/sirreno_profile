@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import Typing from "react-typing-effect";
 
-import img1 from "../../../assets/img/mal2.jpeg";
-import img2 from "../../../assets/img/mal3.jpeg";
-import img3 from "../../../assets/IMG_6551.jpeg";
-import img4 from "../../../assets/img/rec1.jpeg";
-import img5 from "../../../assets/IMG_6548.jpeg";
+import img1 from "./aboute_4.jpeg";
+import img2 from "./about_3.jpeg";
+import img3 from "./about_5.jpeg";
+import img4 from "./about_1.jpeg";
+import img5 from "./about_2.jpeg";
 import img6 from "../../../assets/img/rec4.jpeg";
-import img7 from "../../../assets/img/mal2.jpeg";
+import img7 from "../../../assets/img/rec2.jpeg";
 import img8 from "../../../assets/img/mal.jpeg";
 
 const iconVariants = (duration) => ({
@@ -67,7 +67,7 @@ function FirstPart() {
       <div className="w-full lg:w-[50%] min-h-[140px] overflow-x-scroll rounded-lg lg:overflow-visible">
         {" "}
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        <motion.div
+          <motion.div
             variants={iconVariants(2.6)}
             initial="initial"
             animate="animate"
@@ -159,15 +159,7 @@ function FirstPart() {
           {firstpart[activeIndex].title}
         </motion.h1>
         <p className="text-white flex text-justify">
-          <Typing
-            text={firstpart[activeIndex].description}
-            speed={10}
-            eraseSpeed={10000000000000}
-            eraseDelay={20000000000000}
-            typingDelay={100}
-            cursor=" "
-            cursorClassName="hidden"
-          />
+          {firstpart[activeIndex].description}
         </p>
         {/* <div className="flex space-x-4 mt-2">
           <div className="flex flex-col justify-center items-center text-center">

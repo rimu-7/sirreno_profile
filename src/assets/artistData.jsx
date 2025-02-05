@@ -11,7 +11,7 @@ import img8 from "./rec3.jpeg";
 export const artists = [
   {
     id: "Jassmine",
-    name: "Charlesline J Harmon",
+    name: "Jassmine",
     hobby: [""],
     description: `Charlesline J Harmon, born February 7, 2005. Stage name "Jasmine" is a Liberian singer, performer, songwriter, poet. She released her first song in 2022. She is a authentic, unique and envisioned young lady. Started music professionally 2023 after she got signed to Native Breed Media.,
 `,
