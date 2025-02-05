@@ -14,8 +14,8 @@ import card_1 from "./jassmine_card.jpeg";
 import card_2 from "./malcolm_card.jpeg";
 
 const transition = {
-  duration: 1.5,
-  delay: 0.5,
+  duration: 2,
+  delay: 1,
   ease: [0, 0.71, 0.2, 1.01],
 };
 
@@ -68,7 +68,7 @@ const Carousel = () => {
       if (!isHovered) {
         setActiveIndex((prevIndex) => (prevIndex + 1) % caseStudies.length);
       }
-    }, 5000);
+    }, 7000);
     return () => clearInterval(interval);
   }, [isHovered, activeIndex]);
 
@@ -111,15 +111,16 @@ const Carousel = () => {
     >
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <AnimatePresence mode="wait">
+          {/* Background Image (Carousel) */}
           <motion.img
-            key={caseStudies[activeIndex].imageUrl}
+            key={caseStudies[activeIndex].imageUrl} // Same key for sync
             src={caseStudies[activeIndex].imageUrl}
             alt="Background"
             className="w-full h-full object-cover absolute"
             initial={{ opacity: 0, scale: 1.1, x: 100, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, scale: 1.1, x: -100, filter: "blur(10px)" }}
-            transition={{ duration: 1.8, ease: "easeInOut" }}
+            transition={{ duration: 1.2, ease: "easeInOut" }} // Same duration for sync
           />
         </AnimatePresence>
       </div>
@@ -134,26 +135,23 @@ const Carousel = () => {
         >
           {caseStudies[activeIndex].title}
         </motion.p>
+        {/* Card Image */}
         <motion.a
           href={caseStudies[activeIndex].link}
           target="_blank"
           rel="noopener noreferrer"
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
           className="self-start w-40 h-auto rounded-lg shadow-lg"
         >
           <AnimatePresence mode="wait">
             <motion.img
-              key={caseStudies[activeIndex].card}
+              key={caseStudies[activeIndex].card} // Same key for sync
               src={caseStudies[activeIndex].card}
               alt="Person Card"
               className="w-full h-auto rounded-lg shadow-lg cursor-pointer hover:grayscale hover:duration-500 hover:transition-colors"
-              variants={iconVariants(2.6)}
-              initial="initial"
-              animate="animate"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.8, filter: "blur(5px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, scale: 0.8, filter: "blur(5px)" }}
+              transition={{ duration: 1.2, ease: "easeInOut" }} // Same duration for sync
             />
           </AnimatePresence>
         </motion.a>
