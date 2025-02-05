@@ -144,14 +144,14 @@ const Carousel = () => {
           initial={{ opacity: 0, x: -100 }} // Start from the left, fully hidden
           animate={{ opacity: 1, x: 0 }} // Move in smoothly
           transition={{ duration: 1, ease: "easeOut" }} // Smooth transition
-          className="self-start w-48 h-auto rounded-lg shadow-lg"
+          className="self-start w-40 h-auto rounded-lg shadow-lg"
         >
           <motion.img
             src={
               caseStudies[activeIndex].title === "Jassmine" ? card_1 : card_2
             }
             alt="Person Card"
-            className="w-full h-auto rounded-lg shadow-lg cursor-pointer"
+            className="w-full h-auto rounded-lg shadow-lg cursor-pointer hover:grayscale hover:duration-500 hover:transition-colors"
             whileHover={{ scale: 1.05 }} // Slight hover effect
             whileTap={{ scale: 0.95 }} // Small click effect
           />
