@@ -97,10 +97,11 @@ const Carousel = () => {
               src={caseStudies[activeIndex].card}
               alt="Person Card"
               className="w-full h-auto rounded-lg shadow-lg cursor-pointer hover:grayscale hover:duration-500 hover:transition-colors"
-              initial={{ opacity: 0, y: 50, scale: 0.8 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -50, scale: 0.8 }}
-              transition={{ type: "spring", stiffness: 120, damping: 10 }}
+              initial={{ opacity: 0, scale: 1.1, x: 100, filter: "blur(10px)" }}
+              animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, scale: 1.1, x: -100, filter: "blur(10px)" }}
+              transition={{ duration: 1.8, ease: "easeInOut" }}
+              
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             />
