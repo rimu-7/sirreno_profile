@@ -7,7 +7,7 @@ import { LuHeartHandshake } from "react-icons/lu";
 
 function Banner() {
   return (
-<div className="flex flex-col min-h-[calc(100vh-200px)]">
+<div className="flex flex-col h-screen">
 {/* Banner Section */}
       <div className="flex-grow flex flex-col items-center justify-center px-5 py-10">
         <h1 className="text-6xl  font-bold text-orange-600 mb-10 text-center">
