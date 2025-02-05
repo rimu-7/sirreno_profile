@@ -69,7 +69,7 @@ function Contact() {
 
             {/* Social Media Icons */}
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 xl:gap-8 mt-6">
-              <BsMusicNote className="text-4xl sm:text-5xl p-3 rounded-full bg-gray-800 hover:text-orange-600 hover:scale-110 cursor-pointer" />
+              {/* <BsMusicNote className="text-4xl sm:text-5xl p-3 rounded-full bg-gray-800 hover:text-orange-600 hover:scale-110 cursor-pointer" /> */}
 
               <motion.div
                 variants={iconVariants(2.6)}
