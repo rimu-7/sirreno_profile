@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Typing from "react-typing-effect";
 import { motion } from "framer-motion";
+import { RiMusicAiLine } from "react-icons/ri";
 import { useSwipeable } from "react-swipeable";
 import Loading from "../../Shared/Loading/Loading";
 import axios from "axios";
@@ -9,15 +11,23 @@ import image2 from "../../../assets/rec3.jpeg";
 import image3 from "../../../assets/rec2.jpeg";
 import image4 from "../../../assets/rec4.jpeg";
 
-import card_1 from "./jassmine_card.jpeg";
-import card_2 from "./malcolm_card.jpeg";
-import { Link } from "react-router-dom";
-
 const transition = {
   duration: 1.5,
   delay: 0.5,
   ease: [0, 0.71, 0.2, 1.01],
 };
+const iconVariants = (duration) => ({
+  initial: { y: 0 },
+  animate: {
+    y: [15, -10],
+    transition: {
+      duration: duration,
+      ease: "linear",
+      repeat: Infinity,
+      repeatType: "reverse",
+    },
+  },
+});
 
 const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -25,28 +35,28 @@ const Carousel = () => {
 
   const caseStudies = [
     {
-      title: "Jassmine",
+      title: "jassmine",
       description: "Lorem ipsum dolor sit amet...",
       imageUrl: image1,
-      link: "onerpm.link/singlesanthem",
+      link: "https://example.com/dress",
     },
     {
       title: "Malcolm LL Smith",
       description: "Lorem ipsum dolor sit amet...",
       imageUrl: image2,
-      link: "https://onerpm.link/817382104762?",
+      link: "https://example.com/shoe",
     },
     {
       title: "Jassmine",
       description: "Lorem ipsum dolor sit amet...",
       imageUrl: image3,
-      link: "onerpm.link/singlesanthem",
+      link: "https://example.com/accessories",
     },
     {
       title: "Malcolm LL Smith",
       description: "Lorem ipsum dolor sit amet...",
       imageUrl: image4,
-      link: "https://onerpm.link/817382104762?",
+      link: "https://example.com/accessories",
     },
   ];
 
@@ -120,41 +130,55 @@ const Carousel = () => {
           transition={{ duration: 1.8, ease: "easeInOut" }}
         />
       </div>
-      <div className="absolute w-full h-full text-white uppercase flex flex-col justify-between p-10">
+      <div className="absolute w-full h-full text-[#212121] uppercase flex flex-col justify-between p-10">
         <motion.p
           transition={transition}
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+          variants={iconVariants(2)}
+          initial="initial"
+          animate="animate"
           className="font-bold text-7xl self-end"
           style={{ fontFamily: "Abril Fatface, serif" }}
         >
           {caseStudies[activeIndex].title}
         </motion.p>
-
-        {/* Show Card Image based on the Person */}
-        <Link></Link>
+        {/* <motion.p
+          transition={transition}
+          variants={iconVariants(2)}
+          initial="initial"
+          animate="animate"
+          className="font-bold text-7xl self-end"
+          style={{ fontFamily: "Abril Fatface, serif" }}
+        >
+          {images.map((item, index) => (
+            <p key={index}>{item.artist_name}</p>
+          ))}
+        </motion.p> */}
+        {/* <motion.p
+          animate={{ x: [-1000, 0] }}
+          transition={transition}
+          className="ml-30 text-start text-sm w-40"
+        >
+          <Typing
+            text={caseStudies[activeIndex].description}
+            speed={10}
+            eraseSpeed={1000000}
+            eraseDelay={2000}
+            typingDelay={100}
+            cursor=" "
+            className="h-48"
+          />
+        </motion.p> */}
         <motion.a
-          href={
-            caseStudies[activeIndex].title === "Jassmine"
-              ? "https://onerpm.link/singlesanthem"
-              : "https://onerpm.link/817382104762?"
-          }
+          variants={iconVariants(3)}
+          initial="initial"
+          animate="animate"
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          href={caseStudies[activeIndex].link}
           target="_blank"
           rel="noopener noreferrer"
-          initial={{ opacity: 0, x: -100 }} // Start from the left, fully hidden
-          animate={{ opacity: 1, x: 0 }} // Move in smoothly
-          transition={{ duration: 1, ease: "easeOut" }} // Smooth transition
-          className="self-start w-48 h-auto rounded-lg shadow-lg"
+          className="text-[#212121] self-start mb-30 px-6 py-3 text-lg backdrop:blur-md rounded-md"
         >
-          <motion.img
-            src={
-              caseStudies[activeIndex].title === "Jassmine" ? card_1 : card_2
-            }
-            alt="Person Card"
-            className="w-full h-auto rounded-lg shadow-lg cursor-pointer"
-            whileHover={{ scale: 1.05 }} // Slight hover effect
-            whileTap={{ scale: 0.95 }} // Small click effect
-          />
+          <RiMusicAiLine className="text-9xl" />
         </motion.a>
       </div>
     </div>
