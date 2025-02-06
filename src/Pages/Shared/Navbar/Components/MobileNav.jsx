@@ -31,7 +31,6 @@ const menuItems = [
   { name: "Contact", path: "/contact" },
   { name: "Events", path: "/events" },
 ];
-
 const MobileNav = ({ isOpen, toggleMenu }) => {
   const location = useLocation();
   const [selectedTab, setSelectedTab] = useState(location.pathname);
@@ -76,6 +75,5 @@ const MobileNav = ({ isOpen, toggleMenu }) => {
     </motion.ul>
   );
 };
-
 
 export default MobileNav;

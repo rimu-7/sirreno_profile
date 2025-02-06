@@ -29,27 +29,27 @@ const Navbar = () => {
     <div
       className={`text-white sticky bg-opacity-90 backdrop-blur-lg top-0 p-5 mb-2 w-full transition-transform duration-300 ${
         isHidden ? "-translate-y-full" : "translate-y-0"
-      } ${isOpen ? "" : ""}`} // Expands the navbar height when open
+      }`}
     >
       <div className="flex items-center justify-between px-6 h-10 sm:px-1">
         {/* Left - Logo */}
-        <div className="flex-shrink-0 ">
+        <div className="flex-shrink-0">
           <Logo />
         </div>
 
         {/* Center - Navbar Links (Hidden on small screens) */}
         <div className="hidden sm:flex flex-1 justify-center">
-          <DropdownMenu isOpen={true} />
+          <DropdownMenu />
         </div>
 
         {/* Right - Mobile Menu Button */}
-        <div className="sm:hidden ">
+        <div className="sm:hidden">
           <NavButton isOpen={isOpen} toggleMenu={toggleMenu} />
         </div>
       </div>
 
-      {/* Mobile Navigation (Shown only when open, pushes content down) */}
-      <div className="">{isOpen && <MobileNav isOpen={isOpen} />}</div>
+      {/* Mobile Navigation - Place this right after the main navbar */}
+      {isOpen && <MobileNav isOpen={isOpen} toggleMenu={toggleMenu} />}
     </div>
   );
 };
