@@ -14,6 +14,7 @@ import Events from "../Pages/Components/Events.jsx";
 import App from "../Pages/Components/artist_2.jsx";
 import ArtistDetails from "../Pages/Components/ArtistDetails.jsx";
 import Artist_2 from "../Pages/Components/artist_2.jsx";
+import BlogDetail from "../Pages/Components/BlogDetails.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
       {
         path: "/artist/:id",
         element: <ArtistDetails/>,
+      },
+      {
+        path: "/blogdetails/:id",
+        element: <BlogDetail/>,
       }
     ],
   },
