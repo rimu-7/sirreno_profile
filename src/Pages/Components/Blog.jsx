@@ -5,8 +5,8 @@ import { blogs } from "../../assets/dummyBlog";
 
 const Blog = () => {
   return (
-    <div className="h-full">
-      <div className="p-4">
+    <div className="h-screen flex flex-col">
+      <div className="flex-grow p-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
           {blogs.map((blog) => (
             <Link
@@ -32,7 +32,7 @@ const Blog = () => {
           ))}
         </div>
       </div>
-      <Footer />
+      <Footer className="mt-auto" />
     </div>
   );
 };
