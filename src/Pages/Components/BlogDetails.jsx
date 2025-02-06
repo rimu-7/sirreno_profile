@@ -29,7 +29,7 @@ const BlogDetail = () => {
           className="w-full rounded-lg"
         />
         <h2
-          className="text-5xl text-center font-bold m-4"
+          className="text-3xl text-center font-bold m-4"
           style={{ fontFamily: "Abril Fatface, serif" }}
         >
           {blog.blog_title}
