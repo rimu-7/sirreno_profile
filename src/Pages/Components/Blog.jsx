@@ -20,7 +20,14 @@ const Blog = () => {
                 className="w-full h-48 object-cover rounded-lg"
                 style={{ fontFamily: "Abril Fatface, serif" }}
               />
-              <h3 className="text-lg font-semibold mt-2">{blog.blog_title}</h3>
+              <h3
+                className="text-lg font-semibold mt-2"
+                title={blog.blog_title}
+              >
+                {blog.blog_title.length > 50
+                  ? `${blog.blog_title.substring(0, 50)}...`
+                  : blog.blog_title}
+              </h3>
             </Link>
           ))}
         </div>
