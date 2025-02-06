@@ -33,7 +33,12 @@ const Events = () => {
               : "Unknown";
             return (
               <div key={index} className="w-full max-w-2xl mb-8 text-center ">
-                <h1 className="text-6xl font-bold mb-4">{eventYear}</h1>
+                <h1
+                  className="text-6xl font-bold mb-4"
+                  style={{ fontFamily: "Abril Fatface, serif" }}
+                >
+                  {eventYear}
+                </h1>
                 {event.event_image && (
                   <img
                     src={event.event_image}

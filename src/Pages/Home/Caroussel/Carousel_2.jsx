@@ -130,13 +130,13 @@ const Carousel = () => {
           transition={{ duration: 1.8, ease: "easeInOut" }}
         />
       </div>
-      <div className="absolute w-full h-full text-[#212121] uppercase flex flex-col justify-between p-10">
+      <div className="absolute w-full h-full  uppercase flex flex-col justify-between p-10">
         <motion.p
           transition={transition}
           variants={iconVariants(2)}
           initial="initial"
           animate="animate"
-          className="font-bold text-7xl self-end"
+          className="font-bold text-7xl self-end text-amber-400"
           style={{ fontFamily: "Abril Fatface, serif" }}
         >
           {caseStudies[activeIndex].title}

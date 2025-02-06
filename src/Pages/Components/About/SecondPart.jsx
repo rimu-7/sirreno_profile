@@ -17,7 +17,10 @@ function SecondPart() {
             2000
           </p>
         </div> */}
-        <h1 className="text-5xl my-5 lg:text-6xl text-orange-600 font-bold flex justify-center items-center gap-2">
+        <h1
+          className="text-5xl my-5 lg:text-6xl text-amber-400 font-bold flex justify-center items-center gap-2"
+          style={{ fontFamily: "Abril Fatface, serif" }}
+        >
           OUR VISION
         </h1>
         <p className="text-white flex text-justify">

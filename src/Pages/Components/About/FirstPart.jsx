@@ -145,7 +145,10 @@ function FirstPart() {
       <div className="w-full lg:w-1/2 lg:pl-6 mt-6 lg:mt-0">
         {" "}
         <div className="text-white flex gap-2">
-          <p className="text-3xl text-orange-600 font-bold uppercase text-justify ">
+          <p
+            className="text-3xl text-amber-400 font-bold uppercase text-justify "
+            style={{ fontFamily: "Abril Fatface, serif" }}
+          >
             We think, create, strategize, and build for our clients
           </p>
         </div>

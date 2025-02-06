@@ -50,13 +50,13 @@ const DropdownMenu = () => {
             key={item.path}
             className="relative cursor-pointer hover:scale-105 hover:duration-500"
             variants={itemVariants}
-            whileHover={{ scale: 1.1, color: "#ff7f50" }}
+            whileHover={{ scale: 1.1, color: "#FFC000" }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setSelectedTab(item.path)}
           >
             <Link
               to={item.path}
-              className="hover:scale-105 hover:duration-500 transition-transform"
+              className="hover:scale-105 hover:duration-500  transition-transform"
             >
               {item.name}
             </Link>
@@ -65,9 +65,9 @@ const DropdownMenu = () => {
             {selectedTab === item.path && (
               <motion.div
                 layoutId="underline"
-                className="absolute left-0 right-0 h-[3px] bg-orange-500 bottom-[-4px] "
+                className="absolute left-0 right-0 h-[3px] text-amber-400 bottom-[-4px] "
                 initial={false}
-                animate={{ backgroundColor: "#ff7f50" }}
+                animate={{ backgroundColor: "#FFC070" }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               />
             )}

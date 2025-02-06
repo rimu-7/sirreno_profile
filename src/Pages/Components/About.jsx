@@ -39,7 +39,8 @@ function About() {
             variants={iconVariants(2.6)}
             initial="initial"
             animate="animate"
-            className="text-6xl text-orange-600"
+            className="text-6xl text-amber-400"
+            style={{ fontFamily: "Abril Fatface, serif" }}
           >
             {about[activeIndex].title}
           </motion.h1>

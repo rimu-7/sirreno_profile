@@ -42,7 +42,7 @@ const Artist_2 = () => {
                   }`}
                 >
                   <p
-                    className={`font-bold text-4xl md:text-6xl lg:text-6xl text-center uppercase transition duration-300 opacity-0 group-hover:opacity-100 ${
+                    className={`font-bold text-4xl md:text-6xl text-amber-400 lg:text-6xl text-center uppercase transition duration-300 opacity-0 group-hover:opacity-100 ${
                       activeIndex === index ? "opacity-100" : ""
                     }`}
                     style={{ fontFamily: "Abril Fatface, serif" }}

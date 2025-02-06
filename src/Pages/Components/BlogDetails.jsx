@@ -18,20 +18,30 @@ const BlogDetail = () => {
     return <div className="p-4">Blog not found</div>;
   }
 
+  const paragraphs = blog.blog_description.split("###");
+
   return (
-<div className="">
-<div className="p-4 max-w-2xl mx-auto">
-      <img
-        src={blog.blog_image}
-        alt={blog.blog_title}
-        className="w-full rounded-lg"
-      />
-      <h2 className="text-5xl text-center font-bold m-4">{blog.blog_title}</h2>
-      <p className="mt-2 text-justify">{blog.blog_description}</p>
-      
+    <div className="">
+      <div className="p-4 max-w-2xl mx-auto">
+        <img
+          src={blog.blog_image}
+          alt={blog.blog_title}
+          className="w-full rounded-lg"
+        />
+        <h2
+          className="text-5xl text-center font-bold m-4"
+          style={{ fontFamily: "Abril Fatface, serif" }}
+        >
+          {blog.blog_title}
+        </h2>
+        {paragraphs.map((paragraph, index) => (
+          <p key={index} className="mt-2 text-justify">
+            {paragraph.trim()}
+          </p>
+        ))}
+      </div>
+      <Footer />
     </div>
-    <Footer/>
-</div>
   );
 };
 

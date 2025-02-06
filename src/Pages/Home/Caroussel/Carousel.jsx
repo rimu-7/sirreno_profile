@@ -125,16 +125,20 @@ const Carousel = () => {
         </AnimatePresence>
       </div>
       <div className="absolute w-full h-full text-white uppercase flex flex-col justify-between p-10">
-        <motion.p
-          transition={transition}
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          variants={iconVariants(2.6)}
-          className="font-bold text-7xl self-end"
-          style={{ fontFamily: "Abril Fatface, serif" }}
-        >
-          {caseStudies[activeIndex].title}
-        </motion.p>
+        <AnimatePresence mode="wait">
+          <motion.p
+            initial={{ opacity: 0, scale: 0.8, filter: "blur(5px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            exit={{ opacity: 0, scale: 0.8, filter: "blur(5px)" }}
+            transition={{ duration: 1.2, ease: "easeInOut" }} // Same duration for sync
+            className="font-bold text-7xl self-end text-amber-400"
+            style={{ fontFamily: "Abril Fatface, serif" }}
+            key={caseStudies[activeIndex].card} // Same key for sync
+            src={caseStudies[activeIndex].card}
+          >
+            {caseStudies[activeIndex].title}
+          </motion.p>
+        </AnimatePresence>
         {/* Card Image */}
         <motion.a
           href={caseStudies[activeIndex].link}

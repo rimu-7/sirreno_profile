@@ -10,7 +10,8 @@ function Footer() {
   return (
     <div className="bg-neutral-900 flex justify-center p-2 text-white border-t-2 border-neutral-600 text-center">
       <small className="w-full">
-        All Rights Reserved &copy; {year} Copyrights, CreaqTech.
+        All Rights Reserved &copy; {year} Copyrights{" "}
+        <span style={{ fontFamily: "Abril Fatface, serif" }}>CreaqTech</span> .
       </small>
     </div>
   );

@@ -33,7 +33,10 @@ function Contact() {
     <div className="">
       <div className="min-h-screen bg-[#212121] text-white flex items-center justify-center p-6">
         <div className="p-8 rounded-lg shadow-2xl border-2 border-neutral-700 w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase text-center mb-8">
+          <h1
+            className="text-2xl sm:text-3xl md:text-4xl text-amber-400 font-bold uppercase text-center mb-8"
+            style={{ fontFamily: "Abril Fatface, serif" }}
+          >
             We Are Just One Click Away
           </h1>
 

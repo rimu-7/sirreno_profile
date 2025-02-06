@@ -74,7 +74,7 @@ const Artisst = () => {
                   <img
                     src={item.image}
                     alt={item.artist_name}
-                    className={`w-full h-full object-cover transition duration-300 ${
+                    className={`w-full h-full text-amber-400 object-cover transition duration-300 ${
                       activeIndex === index ? "blur-md" : "group-hover:blur-md"
                     }`}
                   />
