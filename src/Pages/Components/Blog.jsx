@@ -5,8 +5,8 @@ import { blogs } from "../../assets/dummyBlog";
 
 const Blog = () => {
   return (
-    <div className="">
-      <div className="p-4 h-screen">
+    <div className="h-full">
+      <div className="p-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
           {blogs.map((blog) => (
             <Link
