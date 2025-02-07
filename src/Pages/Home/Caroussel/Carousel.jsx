@@ -131,7 +131,7 @@ const Carousel = () => {
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             exit={{ opacity: 0, scale: 0.8, filter: "blur(5px)" }}
             transition={{ duration: 1.2, ease: "easeInOut" }} // Same duration for sync
-            className="font-bold text-7xl self-end text-amber-400"
+            className="font-bold text-7xl self-end "
             style={{ fontFamily: "Abril Fatface, serif" }}
             key={caseStudies[activeIndex].card} // Same key for sync
             src={caseStudies[activeIndex].card}
