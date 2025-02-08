@@ -22,7 +22,7 @@ const Events = () => {
 
   return (
     <div className="">
-      <div className="min-h-screen  text-amber-400 flex flex-col items-center p-6">
+      <div className="min-h-screen   flex flex-col items-center p-6">
         {sortedEvents.length > 0 ? (
           sortedEvents.map((event) => (
             <div key={event.id} className="w-full max-w-2xl mb-8 text-center">

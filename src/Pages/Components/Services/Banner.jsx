@@ -11,7 +11,7 @@ function Banner() {
       {/* Banner Section */}
       <div className="flex-grow flex flex-col items-center justify-center px-5 py-10">
         <h1
-          className="text-6xl  font-bold text-amber-400 mb-10 text-center"
+          className="text-6xl  font-bold  mb-10 text-center"
           style={{ fontFamily: "Abril Fatface, serif" }}
         >
           Our Services

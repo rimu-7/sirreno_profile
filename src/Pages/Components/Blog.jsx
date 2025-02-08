@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import Footer from "../Shared/Footer/Footer";
+import React from "react";
 import { Link } from "react-router-dom";
 import { blogs } from "../../assets/dummyBlog";
+import Footer from "../Shared/Footer/Footer";
 
 const Blog = () => {
   return (
-    <div className="h-screen flex flex-col overflow-y-hidden">
-      <div className="flex-grow p-4 overflow-y-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
+    <div className="bg-[#212121] flex flex-col ">
+      <div className="flex-grow p-4 ">
+        <div className="flex flex-col w-96  gap-4 mx-auto">
           {blogs.map((blog) => (
             <Link
               to={`/blogdetails/${blog.blog_id}`}
@@ -32,7 +32,7 @@ const Blog = () => {
           ))}
         </div>
       </div>
-      <Footer className="mt-auto" />
+      <Footer/>
     </div>
   );
 };
