@@ -1,28 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../Shared/Footer/Footer";
-import image1 from "../../assets/events-1.jpeg";
-import image2 from "../../assets/events-2023.jpeg";
-
-const events_data = [
-  {
-    id: 1,
-    year: 2022,
-    picture: image1,
-  },
-  {
-    id: 2,
-    year: 2023,
-    picture: image2,
-  },
-];
+import axios from "axios";
 
 const Events = () => {
-  // Sort events in descending order based on year
-  const sortedEvents = [...events_data].sort((a, b) => b.year - a.year);
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get("https://nativeadmin-five.vercel.app/api/events");
+        // Map API response to extract year from the date
+        const eventsData = response.data.map((event) => ({
+          id: event._id,
+          imageUrl: event.imageUrl,
+          year: new Date(event.date).getFullYear(), // Extract year from date
+        }));
+        setEvents(eventsData);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="text-white text-center mt-10">Loading events...</div>
+    );
+  }
+
+  const sortedEvents = [...events].sort((a, b) => b.year - a.year);
 
   return (
     <div className="">
-      <div className="min-h-screen   flex flex-col items-center p-6">
+      <div className="min-h-screen flex flex-col items-center p-6">
         {sortedEvents.length > 0 ? (
           sortedEvents.map((event) => (
             <div key={event.id} className="w-full max-w-2xl mb-8 text-center">
@@ -32,9 +47,9 @@ const Events = () => {
               >
                 {event.year}
               </h1>
-              {event.picture && (
+              {event.imageUrl && (
                 <img
-                  src={event.picture}
+                  src={event.imageUrl}
                   alt={`Event in ${event.year}`}
                   className="w-full rounded-lg shadow-lg"
                 />
