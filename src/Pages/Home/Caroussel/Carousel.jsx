@@ -5,13 +5,7 @@ import Loading from "../../Shared/Loading/Loading";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import image1 from "../../../assets/rec1.jpeg";
-import image2 from "../../../assets/rec3.jpeg";
-import image3 from "../../../assets/rec2.jpeg";
-import image4 from "../../../assets/rec4.jpeg";
 
-import card_1 from "./jassmine_card.jpeg";
-import card_2 from "./malcolm_card.jpeg";
 
 const transition = {
   duration: 2,
@@ -39,26 +33,30 @@ const Carousel = () => {
   const caseStudies = [
     {
       title: "Jassmine",
-      imageUrl: image1,
-      card: card_1,
+      imageUrl:
+        "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238601/rec1_ieukle.jpg",
+      card: "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238672/jassmine_card_mgttuv.jpg",
       link: "https://onerpm.link/singlesanthem",
     },
     {
       title: "Malcolm LL Smith",
-      imageUrl: image2,
-      card: card_2,
+      imageUrl:
+        "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238601/rec3_fgjfla.jpg",
+      card: "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238672/malcolm_card_usv5bx.jpg",
       link: "https://onerpm.link/817382104762?",
     },
     {
       title: "Jassmine",
-      imageUrl: image3,
-      card: card_1,
+      imageUrl:
+        "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238601/rec2_bydjqe.jpg",
+      card: "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238672/jassmine_card_mgttuv.jpg",
       link: "https://onerpm.link/singlesanthem",
     },
     {
       title: "Malcolm LL Smith",
-      imageUrl: image4,
-      card: card_2,
+      imageUrl:
+        "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238601/rec4_hiseeu.jpg",
+      card: "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238672/malcolm_card_usv5bx.jpg",
       link: "https://onerpm.link/817382104762?",
     },
   ];

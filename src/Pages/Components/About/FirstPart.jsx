@@ -2,14 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import Typing from "react-typing-effect";
 
-import img1 from "./aboute_4.jpeg";
-import img2 from "./about_3.jpeg";
-import img3 from "./about_5.jpeg";
-import img4 from "./about_1.jpeg";
-import img5 from "./about_2.jpeg";
-import img6 from "../../../assets/img/rec4.jpeg";
-import img7 from "../../../assets/img/rec2.jpeg";
-import img8 from "../../../assets/img/mal.jpeg";
+
 
 const iconVariants = (duration) => ({
   initial: { y: 0 },
@@ -75,7 +68,9 @@ function FirstPart() {
           >
             <img
               className="object-cover object-center min:h-[90%] w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
-              src={img1}
+              src={
+                "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238599/logo_mojz5x.jpg"
+              }
               alt="image 1"
             />
           </motion.div>
@@ -87,7 +82,9 @@ function FirstPart() {
           >
             <img
               className="object-cover object-center min:h-[90%] w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
-              src={img2}
+              src={
+                "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238610/IMG_6549_tsahjh.png"
+              }
               alt="image 2"
             />
           </motion.div>
@@ -99,7 +96,9 @@ function FirstPart() {
           >
             <img
               className="object-cover object-center min:h-[90%] w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
-              src={img3}
+              src={
+                "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238601/rec3_fgjfla.jpg"
+              }
               alt="image 3"
             />
           </motion.div>
@@ -111,7 +110,9 @@ function FirstPart() {
           >
             <img
               className="object-cover object-center min:h-[90%] w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
-              src={img4}
+              src={
+                "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739239684/about_1_k7sf0o.jpg"
+              }
               alt="image 4"
             />
           </motion.div>
@@ -123,7 +124,9 @@ function FirstPart() {
           >
             <img
               className="object-cover object-center min:h-[90%] w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
-              src={img5}
+              src={
+                "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739239684/about_2_r2c4bg.jpg"
+              }
               alt="image 5"
             />
           </motion.div>
@@ -135,7 +138,9 @@ function FirstPart() {
           >
             <img
               className="object-cover object-center min:h-[90%] w-full rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
-              src={img7}
+              src={
+                "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238601/rec2_bydjqe.jpg"
+              }
               alt="image 6"
             />
           </motion.div>

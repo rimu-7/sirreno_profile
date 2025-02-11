@@ -2,19 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "../Shared/Loading/Loading";
-import image1 from "../../assets/rec1.jpeg";
-import image2 from "../../assets/rec3.jpeg";
 import Footer from "../Shared/Footer/Footer";
 
 const Artisst = () => {
   const artist = [
     {
       name: "Jassmine",
-      image: image1,
+      image: 'https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238601/rec1_ieukle.jpg',
     },
     {
       name: "MALCOLM LL SMITH",
-      image: image2,
+      image: 'https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238601/rec3_fgjfla.jpg',
     },
   ];
   const [activeIndex, setActiveIndex] = useState(null);

@@ -1,8 +1,6 @@
 import React from "react";
 
-import { BsMusicNote } from "react-icons/bs";
-import img from "../../../assets/1111.jpeg";
-import { Link } from "react-router-dom";
+
 
 function SecondPart() {
   return (
@@ -58,7 +56,7 @@ function SecondPart() {
         <div>
           <img
             className="object-cover object-center  max-w-full rounded-lg hover:scale-105 hover:duration-500"
-            src={img}
+            src={"https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238606/1111_uumid5.jpg"}
           />
         </div>
       </div>

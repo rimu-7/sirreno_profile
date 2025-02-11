@@ -1,11 +1,9 @@
-import image1 from "./IMG_6549.jpeg";
-import image2 from "./blog_2.jpeg";
-import image3 from "./blog_3.jpeg";
+
 
 export const blogs = [
   {
     blog_id: "1",
-    blog_image: image1,
+    blog_image: "https://res.cloudinary.com/ddssf6cm6/image/upload/v1739239683/about_3_gmad2e.jpg",
     blog_title: " Embracing Gratitude: The Journey of Jassmine's Upcoming EP",
     blog_description: `As the much-anticipated release of Jassmine's new EP draws near, there’s an undeniable sense of excitement in the air. In the spirit of gratitude, Jassmine expresses appreciation for every moment and every individual who has played a part in this journey. With a grateful heart, embracing every blessing—big and small—it’s a time for celebration and reflection. 
 
@@ -37,7 +35,7 @@ Thank you to all the supporters who have stood by her side. Jassmine’s journey
   },
   {
     blog_id: "2",
-    blog_image: image2,
+    blog_image: 'https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238610/blog_2_yk3vxq.jpg',
     blog_title:
       "Jassmine Hits a Major Milestone: Every Song Reaches 1 Million Plays on Audiomack!",
     blog_description: `In the realm of music, achieving a million streams is no small feat. It signifies a connection with listeners, a resonance in their hearts, and an undeniable impact on their lives. Today, we celebrate not just a single hit but a remarkable accomplishment: every song by Jassmine has surpassed the incredible milestone of 1 million plays on Audiomack! 
@@ -68,7 +66,7 @@ As she prepares for the release of her new EP and continues to release fresh con
   },
   {
     blog_id: "3",
-    blog_image: image3,
+    blog_image: 'https://res.cloudinary.com/ddssf6cm6/image/upload/v1739238612/blog_3_utzkqp.jpg',
     blog_title:
       "Jassmine Collaborates with JB D General in New Track “Insecure”",
     blog_description: `In the world of music, collaborations can bring together unique sounds and perspectives, amplifying creativity and sparking fresh energy. This time, the spotlight shines on Jassmine as she teams up with the talented JB D General for their highly anticipated track, “Insecure.” This collaboration promises to be an exciting addition to both artists’ discographies, merging their distinctive styles into something truly special.
