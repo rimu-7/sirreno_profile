@@ -1,10 +1,10 @@
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../Logo";
 import DropdownMenu from "./DropdownMenu";
 import MobileNav from "./MobileNav";
 import NavButton from "./NavButton";
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
@@ -14,7 +14,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (isOpen) return; // Don't hide navbar while menu is open
+      if (isOpen) return;
       const currentScroll =
         window.scrollY || document.documentElement.scrollTop;
       setIsHidden(currentScroll > lastScrollTop);
@@ -27,28 +27,25 @@ const Navbar = () => {
 
   return (
     <div
-      className={`text-white sticky bg-opacity-90 backdrop-blur-lg top-0 p-5 mb-2 w-full transition-transform duration-300 ${
+      className={`text-white absolute top-0 left-0 w-full p-5 transition-transform duration-300 z-50 ${
         isHidden ? "-translate-y-full" : "translate-y-0"
       }`}
+      style={{ backgroundColor: "rgba(0, 0, 0, 0)" }} // Light transparency
     >
       <div className="flex items-center justify-between px-6 h-10 sm:px-1">
-        {/* Left - Logo */}
         <div className="flex-shrink-0">
           <Logo />
         </div>
 
-        {/* Center - Navbar Links (Hidden on small screens) */}
         <div className="hidden sm:flex flex-1 justify-center">
           <DropdownMenu />
         </div>
 
-        {/* Right - Mobile Menu Button */}
         <div className="sm:hidden">
           <NavButton isOpen={isOpen} toggleMenu={toggleMenu} />
         </div>
       </div>
 
-      {/* Mobile Navigation - Place this right after the main navbar */}
       {isOpen && <MobileNav isOpen={isOpen} toggleMenu={toggleMenu} />}
     </div>
   );

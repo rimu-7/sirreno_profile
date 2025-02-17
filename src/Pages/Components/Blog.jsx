@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Footer from "../Shared/Footer/Footer";
+import Navbar from "../Shared/Navbar/Navbar";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -13,7 +14,7 @@ const Blog = () => {
         const response = await axios.get(
           "https://nativeadminpost.vercel.app/api/blogs"
         );
-        console.log("Fetched blogs:", response.data); // Log the data
+        console.log("Fetched blogs:", response.data);
 
         // Sort blogs by date (newest first) or by ID as fallback
         const sortedBlogs = response.data.sort((a, b) => {
@@ -41,6 +42,7 @@ const Blog = () => {
 
   return (
     <div className="">
+      <Navbar />
       <div className="bg-[#212121] flex text-white flex-col h-full">
         <div className="flex-grow p-4">
           <div className="flex flex-col w-96 gap-4 mx-auto">

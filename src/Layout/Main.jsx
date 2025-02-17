@@ -8,7 +8,7 @@ import JivoChat from "../Pages/Home/Home/jivochat/JivoChat";
 const Main = () => {
   return (
     <div className="bg-[#212121] text-white w-full min-h-screen flex flex-col">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Centered Content with max-width for 4K screens */}
       <div className="w-full max-w-[1800px] mx-auto ">

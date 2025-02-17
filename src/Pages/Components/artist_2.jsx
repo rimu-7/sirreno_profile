@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { artists } from "../../assets/artistData";
 import Footer from "../Shared/Footer/Footer";
+import Navbar from "../Shared/Navbar/Navbar";
 
 const Artist_2 = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -16,6 +17,7 @@ const Artist_2 = () => {
 
   return (
     <div className="">
+      <Navbar />
       <div className="w-full min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8 text-white">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-6xl">
           {artists.map((artist, index) => (

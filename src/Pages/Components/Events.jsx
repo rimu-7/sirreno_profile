@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../Shared/Footer/Footer";
 import axios from "axios";
+import Navbar from "../Shared/Navbar/Navbar";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -37,6 +38,7 @@ const Events = () => {
 
   return (
     <div className="">
+      <Navbar/>
       <div className="min-h-screen flex flex-col items-center p-6">
         {sortedEvents.length > 0 ? (
           sortedEvents.map((event) => (

@@ -1,7 +1,7 @@
 import React from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
-import { BsMusicNote } from "react-icons/bs";
+import Navbar from "../Shared/Navbar/Navbar";
 import {
   FaFacebook,
   FaYoutube,
@@ -31,6 +31,7 @@ const iconVariants = (duration) => ({
 function Contact() {
   return (
     <div className="">
+      <Navbar />
       <div className="min-h-screen bg-[#212121] text-white flex items-center justify-center p-6">
         <div className="p-8 rounded-lg shadow-2xl border-2 border-neutral-700 w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl">
           <h1

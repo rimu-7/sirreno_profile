@@ -4,6 +4,7 @@ import { useSwipeable } from "react-swipeable";
 import Loading from "../../Shared/Loading/Loading";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Navbar from "../../Shared/Navbar/Components/Navbar";
 
 
 
@@ -101,65 +102,71 @@ const Carousel = () => {
   }
 
   return (
-    <div
-      {...handlers}
-      className="flex items-center justify-center h-screen w-full overflow-hidden relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <AnimatePresence mode="wait">
-          {/* Background Image (Carousel) */}
-          <motion.img
-            key={caseStudies[activeIndex].imageUrl} // Same key for sync
-            src={caseStudies[activeIndex].imageUrl}
-            alt="Background"
-            className="w-full h-full object-cover absolute"
-            initial={{ opacity: 0, scale: 1.1, x: 100, filter: "blur(10px)" }}
-            animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, scale: 1.1, x: -100, filter: "blur(10px)" }}
-            transition={{ duration: 1.2, ease: "easeInOut" }} // Same duration for sync
-          />
-        </AnimatePresence>
-      </div>
-      <div className="absolute w-full h-full text-white uppercase flex flex-col justify-between p-10">
-        <AnimatePresence mode="wait">
-          <motion.p
-            initial={{ opacity: 0, scale: 0.8, filter: "blur(5px)" }}
-            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, scale: 0.8, filter: "blur(5px)" }}
-            transition={{ duration: 1.2, ease: "easeInOut" }} // Same duration for sync
-            className="font-bold text-7xl self-end "
-            style={{ fontFamily: "Abril Fatface, serif" }}
-            key={caseStudies[activeIndex].card} // Same key for sync
-            src={caseStudies[activeIndex].card}
-          >
-            {caseStudies[activeIndex].title}
-          </motion.p>
-        </AnimatePresence>
-        {/* Card Image */}
-        <motion.a
-          href={caseStudies[activeIndex].link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="self-start w-40 h-auto rounded-lg shadow-lg"
-        >
+    <div {...handlers} className="relative w-full h-screen overflow-hidden">
+      {/* Navbar at the top */}
+      <Navbar />
+  
+      <div
+        className="flex items-center justify-center h-full w-full relative"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Background Image (Carousel) */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.img
-              key={caseStudies[activeIndex].card} // Same key for sync
-              src={caseStudies[activeIndex].card}
-              alt="Person Card"
-              className="w-full h-auto rounded-lg shadow-lg cursor-pointer hover:grayscale hover:duration-500 hover:transition-colors"
+              key={caseStudies[activeIndex].imageUrl}
+              src={caseStudies[activeIndex].imageUrl}
+              alt="Background"
+              className="w-full h-full object-cover absolute"
+              initial={{ opacity: 0, scale: 1.1, x: 100, filter: "blur(10px)" }}
+              animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, scale: 1.1, x: -100, filter: "blur(10px)" }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+            />
+          </AnimatePresence>
+        </div>
+  
+        <div className="absolute w-full h-full text-white uppercase flex flex-col justify-between p-10">
+          <AnimatePresence mode="wait">
+            <motion.p
               initial={{ opacity: 0, scale: 0.8, filter: "blur(5px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
               exit={{ opacity: 0, scale: 0.8, filter: "blur(5px)" }}
-              transition={{ duration: 1.2, ease: "easeInOut" }} // Same duration for sync
-            />
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+              className="font-bold text-7xl self-end"
+              style={{ fontFamily: "Abril Fatface, serif" }}
+              key={caseStudies[activeIndex].card}
+            >
+              {caseStudies[activeIndex].title}
+            </motion.p>
           </AnimatePresence>
-        </motion.a>
+  
+          {/* Card Image */}
+          <motion.a
+            href={caseStudies[activeIndex].link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="self-start w-40 h-auto rounded-lg shadow-lg"
+          >
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={caseStudies[activeIndex].card}
+                src={caseStudies[activeIndex].card}
+                alt="Person Card"
+                className="w-full h-auto rounded-lg shadow-lg cursor-pointer hover:grayscale hover:duration-500 hover:transition-colors"
+                initial={{ opacity: 0, scale: 0.8, filter: "blur(5px)" }}
+                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, scale: 0.8, filter: "blur(5px)" }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+              />
+            </AnimatePresence>
+          </motion.a>
+        </div>
       </div>
     </div>
   );
+  
 };
 
 export default Carousel;

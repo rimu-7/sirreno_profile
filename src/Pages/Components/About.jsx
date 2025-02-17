@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import FirstPart from "./About/FirstPart";
 import SecondPart from "./About/SecondPart";
 import AboutFooter from "./About/AboutFooter";
-import Typing from "react-typing-effect";
+import Navbar from "../Shared/Navbar/Navbar";
 import Footer from "../Shared/Footer/Footer";
 
 const about = [
@@ -33,6 +33,7 @@ function About() {
 
   return (
     <div className="">
+      <Navbar/>
       <div className="text-white px-3 min-h-[calc(100vh-200px)]">
         <div className=" py-10 text-white flex flex-col justify-center items-center text-center">
           <motion.h1

@@ -1,27 +1,44 @@
-import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  useParams,
-} from "react-router-dom";
-import Blog from "./Blog";
-import { blogs } from "../../assets/dummyBlog";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import Footer from "../Shared/Footer/Footer";
+import Navbar from "../Shared/Navbar/Navbar";
 
 const BlogDetail = () => {
-  const { id } = useParams();
-  const blog = blogs.find((b) => b.blog_id === id);
+  const { id } = useParams(); // Get blog id from URL parameter
+  const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogDetail = async () => {
+      try {
+        const response = await axios.get(
+          `https://nativeadminpost.vercel.app/api/blogs/${id}`
+        );
+        setBlog(response.data);
+      } catch (error) {
+        console.error("Error fetching blog details:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogDetail();
+  }, [id]);
+
+  if (loading) {
+    return <div className="text-white text-center mt-10">Loading blog...</div>;
+  }
 
   if (!blog) {
-    return <div className="p-4">Blog not found</div>;
+    return <div className="p-4 text-white">Blog not found</div>;
   }
 
   const paragraphs = blog.blog_description.split("###");
 
   return (
     <div className="">
+      <Navbar/>
       <div className="p-4 max-w-2xl mx-auto">
         <img
           src={blog.blog_image}
