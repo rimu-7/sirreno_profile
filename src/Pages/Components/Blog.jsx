@@ -13,7 +13,9 @@ const Blog = () => {
         const response = await axios.get(
           "https://nativeadminpost.vercel.app/api/blogs"
         );
-        setBlogs(response.data);
+        // Sort blogs by date (newest first)
+        const sortedBlogs = response.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        setBlogs(sortedBlogs);
       } catch (error) {
         console.error("Error fetching blogs:", error);
       } finally {
