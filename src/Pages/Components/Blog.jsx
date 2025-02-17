@@ -11,7 +11,7 @@ const Blog = () => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          "https://nativebackend-mauve.vercel.app/api/blogs"
+          "https://nativeadminpost.vercel.app/api/blogs"
         );
         setBlogs(response.data);
       } catch (error) {
