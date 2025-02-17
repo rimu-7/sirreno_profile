@@ -9,7 +9,7 @@ const Events = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("https://nativebackend-mauve.vercel.app/api/events");
+        const response = await axios.get("https://nativeadminpost.vercel.app/api/events");
         // Map API response to extract year from the date
         const eventsData = response.data.map((event) => ({
           id: event._id,
