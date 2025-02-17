@@ -13,8 +13,17 @@ const Blog = () => {
         const response = await axios.get(
           "https://nativeadminpost.vercel.app/api/blogs"
         );
-        // Sort blogs by date (newest first)
-        const sortedBlogs = response.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        console.log("Fetched blogs:", response.data); // Log the data
+
+        // Sort blogs by date (newest first) or by ID as fallback
+        const sortedBlogs = response.data.sort((a, b) => {
+          if (a.created_at && b.created_at) {
+            return new Date(b.created_at) - new Date(a.created_at);
+          } else {
+            return b.blog_id - a.blog_id; // Fallback to sorting by ID
+          }
+        });
+
         setBlogs(sortedBlogs);
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -32,7 +41,7 @@ const Blog = () => {
 
   return (
     <div className="">
-      <div className="bg-[#212121] flex text-white  flex-col h-full">
+      <div className="bg-[#212121] flex text-white flex-col h-full">
         <div className="flex-grow p-4">
           <div className="flex flex-col w-96 gap-4 mx-auto">
             {blogs.length === 0 ? (
@@ -42,7 +51,7 @@ const Blog = () => {
                 <Link
                   to={`/blogdetails/${blog.blog_id}`}
                   key={blog.blog_id}
-                  className="border p-4 rounded-lg   cursor-pointer "
+                  className="border p-4 rounded-lg cursor-pointer"
                 >
                   <img
                     src={blog.blog_image}
@@ -50,7 +59,7 @@ const Blog = () => {
                     className="w-full h-48 object-cover rounded-lg"
                   />
                   <h3
-                    className="text-lg font-semibold mt-2 "
+                    className="text-lg font-semibold mt-2"
                     title={blog.blog_title}
                   >
                     {blog.blog_title.length > 50
